@@ -1,0 +1,25 @@
+{
+  "author": {
+    "name": "Novation Mobile"
+  },
+  "name": "novation-mobile",
+  "description": "A configured server for node",
+  "version": "0.0.59",
+  "repository": {
+    "url": ""
+  },
+  "main": "./lib/server",
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  },
+  "readme": "ERROR: No README.md file found!",
+  "readmeFilename": "README.md",
+  "_id": "novation-mobile@0.0.58",
+  "_from": "novation-mobile@^0.0.*",
+  "_shasum": "7c32ae18127936903dd2b63df331e02069d774a6",
+  "_resolved": "https://registry.npmjs.org/novation-mobile/-/novation-mobile-0.0.49.tgz",
+  "scripts": {}
+}
