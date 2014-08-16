@@ -1,0 +1,103 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@1.4.14
+3 info using node@v0.10.29
+4 verbose publish [ '.' ]
+5 verbose cache add [ '.', null ]
+6 verbose cache add name=undefined spec="." args=[".",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: '.',
+7 verbose parsed url   path: '.',
+7 verbose parsed url   href: '.' }
+8 silly lockFile 3a52ce78- .
+9 verbose lock . /Users/alexander/.npm/3a52ce78-.lock
+10 verbose tar pack [ '/Users/alexander/.npm/novation-mobile/0.0.59/package.tgz',
+10 verbose tar pack   '.' ]
+11 verbose tarball /Users/alexander/.npm/novation-mobile/0.0.59/package.tgz
+12 verbose folder .
+13 info prepublish novation-mobile@0.0.59
+14 silly lockFile 1f1177db-tar tar://.
+15 verbose lock tar://. /Users/alexander/.npm/1f1177db-tar.lock
+16 silly lockFile 8676086c-vation-mobile-0-0-59-package-tgz tar:///Users/alexander/.npm/novation-mobile/0.0.59/package.tgz
+17 verbose lock tar:///Users/alexander/.npm/novation-mobile/0.0.59/package.tgz /Users/alexander/.npm/8676086c-vation-mobile-0-0-59-package-tgz.lock
+18 silly lockFile 1f1177db-tar tar://.
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile 8676086c-vation-mobile-0-0-59-package-tgz tar:///Users/alexander/.npm/novation-mobile/0.0.59/package.tgz
+21 silly lockFile 8676086c-vation-mobile-0-0-59-package-tgz tar:///Users/alexander/.npm/novation-mobile/0.0.59/package.tgz
+22 silly lockFile d84f8257-m-novation-mobile-0-0-59-package /Users/alexander/.npm/novation-mobile/0.0.59/package
+23 verbose lock /Users/alexander/.npm/novation-mobile/0.0.59/package /Users/alexander/.npm/d84f8257-m-novation-mobile-0-0-59-package.lock
+24 silly lockFile d84f8257-m-novation-mobile-0-0-59-package /Users/alexander/.npm/novation-mobile/0.0.59/package
+25 silly lockFile d84f8257-m-novation-mobile-0-0-59-package /Users/alexander/.npm/novation-mobile/0.0.59/package
+26 silly lockFile 3a52ce78- .
+27 silly lockFile 3a52ce78- .
+28 silly publish { author: { name: 'Novation Mobile' },
+28 silly publish   name: 'novation-mobile',
+28 silly publish   description: 'A configured server for node',
+28 silly publish   version: '0.0.59',
+28 silly publish   repository:
+28 silly publish    { url: 'https://github.com/chapinkapa/novation-mobile/',
+28 silly publish      type: 'git' },
+28 silly publish   keywords: [ 'framework' ],
+28 silly publish   license: 'MIT',
+28 silly publish   licenses:
+28 silly publish    { type: 'MIT',
+28 silly publish      url: 'https://github.com/chapinkapa/novation-mobile/blob/master/LICENSE' },
+28 silly publish   main: './lib/server',
+28 silly publish   bugs: { url: 'https://github.com/hemphillcc/cagination/issues' },
+28 silly publish   readme: 'We are currently using Freezx\'s fork for socket.io and socket.io-redis:\nhttps://github.com/FREEZX',
+28 silly publish   readmeFilename: 'README.md',
+28 silly publish   gitHead: 'ea92b243197094e8fd3fc6b7efff861217aba4ef',
+28 silly publish   _id: 'novation-mobile@0.0.59',
+28 silly publish   scripts: {},
+28 silly publish   _shasum: '8d4eb00a8f97b347015c205aa7b7f0900f7fb74a',
+28 silly publish   _from: '.' }
+29 verbose url raw novation-mobile
+30 verbose url resolving [ 'https://registry.npmjs.org/', './novation-mobile' ]
+31 verbose url resolved https://registry.npmjs.org/novation-mobile
+32 info trying registry request attempt 1 at 21:49:28
+33 http PUT https://registry.npmjs.org/novation-mobile
+34 http 403 https://registry.npmjs.org/novation-mobile
+35 verbose headers { date: 'Sat, 16 Aug 2014 02:44:40 GMT',
+35 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+35 verbose headers   'content-type': 'application/json',
+35 verbose headers   'cache-control': 'max-age=60',
+35 verbose headers   'content-length': '2094',
+35 verbose headers   'accept-ranges': 'bytes',
+35 verbose headers   via: '1.1 varnish',
+35 verbose headers   'x-served-by': 'cache-sjc3127-SJC',
+35 verbose headers   'x-cache': 'MISS',
+35 verbose headers   'x-cache-hits': '0',
+35 verbose headers   'x-timer': 'S1408157080.473089,VS0,VE126',
+35 verbose headers   'keep-alive': 'timeout=10, max=50',
+35 verbose headers   connection: 'Keep-Alive' }
+36 error publish Failed PUT 403
+37 error Error: forbidden cannot modify pre-existing version: 0.0.59
+37 error old={"author":{"name":"Novation Mobile"},"name":"novation-mobile","description":"A configured server for node","version":"0.0.59","repository":{"url":""},"main":"./lib/server","dependencies":{},"devDependencies":{},"optionalDependencies":{},"engines":{"node":"*"},"_id":"novation-mobile@0.0.59","_from":".","_shasum":"dc6f9b5a0e2d12c7dafb5f45727be2625a60a232","_resolved":"https://registry.npmjs.org/novation-mobile/-/novation-mobile-0.0.49.tgz","scripts":{},"_npmVersion":"1.4.14","_npmUser":{"name":"chapinkapa","email":"price.alex@yahoo.com"},"maintainers":[{"name":"chapinkapa","email":"price.alex@yahoo.com"}],"dist":{"shasum":"dc6f9b5a0e2d12c7dafb5f45727be2625a60a232","tarball":"http://registry.npmjs.org/novation-mobile/-/novation-mobile-0.0.59.tgz"}}
+37 error new={"author":{"name":"Novation Mobile"},"name":"novation-mobile","description":"A configured server for node","version":"0.0.59","repository":{"url":"https://github.com/chapinkapa/novation-mobile/","type":"git"},"keywords":["framework"],"license":"MIT","licenses":{"type":"MIT","url":"https://github.com/chapinkapa/novation-mobile/blob/master/LICENSE"},"main":"./lib/server","bugs":{"url":"https://github.com/hemphillcc/cagination/issues"},"readme":"We are currently using Freezx's fork for socket.io and socket.io-redis:\u000ahttps://github.com/FREEZX","readmeFilename":"README.md","gitHead":"ea92b243197094e8fd3fc6b7efff861217aba4ef","_id":"novation-mobile@0.0.59","scripts":{},"_shasum":"8d4eb00a8f97b347015c205aa7b7f0900f7fb74a","_from":".","_npmVersion":"1.4.14","_npmUser":{"name":"chapinkapa","email":"price.alex@yahoo.com"},"maintainers":[{"name":"chapinkapa","email":"price.alex@yahoo.com"}],"dist":{"shasum":"8d4eb00a8f97b347015c205aa7b7f0900f7fb74a","tarball":"http://registry.npmjs.org/novation-mobile/-/novation-mobile-0.0.59.tgz"}}: novation-mobile
+37 error     at RegClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:274:14)
+37 error     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:212:65)
+37 error     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:123:22)
+37 error     at Request.emit (events.js:98:17)
+37 error     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:893:14)
+37 error     at Request.emit (events.js:117:20)
+37 error     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:844:12)
+37 error     at IncomingMessage.emit (events.js:117:20)
+37 error     at _stream_readable.js:929:16
+37 error     at process._tickCallback (node.js:419:13)
+38 error If you need help, you may report this *entire* log,
+38 error including the npm and node versions, at:
+38 error     <http://github.com/npm/npm/issues>
+39 error System Darwin 13.3.0
+40 error command "node" "/usr/local/bin/npm" "publish"
+41 error cwd /Users/alexander/github/modules/novation-mobile
+42 error node -v v0.10.29
+43 error npm -v 1.4.14
+44 verbose exit [ 1, true ]
