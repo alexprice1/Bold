@@ -19,7 +19,7 @@
   },
   "main": "./lib/server",
   "bugs": {
-    "url": "https://github.com/hemphillcc/cagination/issues"
+    "url": "https://github.com/chapinkapa/novation-mobile/issues"
   },
   "dependencies": {
     "basic-auth-connect": "^1.0.0",
