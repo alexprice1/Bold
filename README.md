@@ -35,23 +35,31 @@ nm.extra(__dirname).server(config);
 Each option should be customized for your app. 
 
 #### Config Options:
-1. **port:** What port to run server on.
-2. **useStaticServer:** Wether to allow the server to act as a static server for a specified folder. Used with viewEngine, viewDirectory, and publicDirectory.
-3. **viewEngine:** Which view engine to use. Example: jade, html, handlebars, etc.
-4. **publicDirectory:** Which directory to be used as your 'static folder.'
-5. **favicon:** Location of your favicon.
-6. **[envLocation](#environmental-variables)**: Location of your environmental 
-7. **preContent**: Location of your
-8. **postContent**: Location of your
-9. **apiLocation**: Location of your
-10. **mongooseSchemaLocation**: Location of your
-10. **appName**: Location of your
-10. **server**: Location of your
-10. **turnOffAwesomeLogs**: Location of your
+1. **port:** What port to run server on. Defaults to process.env.PORT and then to 4050.
+1. **useStaticServer:** Wether to allow the server to act as a static server for a specified folder. Used with viewEngine, viewDirectory, and publicDirectory. Defaults to true.
+1. **viewEngine:** Which view engine to use. Example: jade, html, handlebars, etc.
+1. **publicDirectory:** Which directory to be used as your 'static folder.'
+1. **favicon:** Location of your favicon. Defaults to "public".
+1. **[envLocation](#environmental-variables)**: Location of your environmenta
+1. **[preContent](#routes)**: Location of your routes that run before api routes.
+1. **[postContent](#routes)**: Location of your routes that run after api routes.
+1. **[apiLocation](#standard-apis)**: Location of your api files/functions. Defaults to "api".
+1. **[mongooseSchemaLocation](#mongoose-schema)**: Location of your mongoose schema. Defaults to "_schema.js".
+1. **appName**: Name of your app.
+1. **server**: Name of the server that the current code is running on.
+1. **turnOffAwesomeLogs**: If you want to turn off our custom redis-logger.
+1. **servers**: An array of servers that is used by redis-logger and socket.io-online-users.
+1. **ssl**: An object of options to use ssl on your node server.
+1. **ssl.key:** Location of key file to use.
+1. **ssl.cert:** Location of the cert file to use.
+1. **ssl.port:** Port to have your node.js https server run on.
+1. **dontUseRedisTTL:** do not use a ttl for redis.
+1. **ttl:** Time in seconds until redis expires documents. Defaults to 3600.
+1. **onlineUsersConfig:** An object with configuration options to use socket.io-online-users.
 
 Components
 ----
-###Routes
+###Routes 
 ##### Location: routes.js
 Allows you to create custom routes for your app.
 ```
