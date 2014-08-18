@@ -102,7 +102,7 @@ Allows you to create APIs that can be accessed by both socket.io and by RESTful 
 
 Say I want to call the function 'run' under 'SomeAPI'. I can request the API either using ``http://localhost:4050/api/SomeAPI/run`` or by using sockets on the client:
 
-    socket.emit('SomeAPI', 'run', {
+    socket.emit('api', 'SomeAPI', 'run', {
       testData: 'I Am Groot'
     }, function(err, data) {
       if (err) {
