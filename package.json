@@ -4,7 +4,7 @@
   },
   "name": "novation-mobile",
   "description": "A configured server for node",
-  "version": "0.0.59",
+  "version": "0.1.0",
   "repository": {
     "url": "https://github.com/chapinkapa/novation-mobile/",
     "type": "git"
