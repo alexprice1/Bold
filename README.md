@@ -1,3 +1,5 @@
+[![NPM version][npm-version-image]][npm-url] [![NPM downloads][npm-downloads-image]][npm-url] [![MIT License][license-image]][license-url] [![Build Status][travis-image]][travis-url]
+
 # Novation-Mobile
 
 Novation-Mobile is a "framework" for Node.js. It was build by [Novation Mobile] to create scaleable Node.js servers with an emphasis on quick, standard development.
@@ -132,8 +134,12 @@ var Schema = mongoose.Schema;
     }));
 
 
-## License
+[license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
+[license-url]: https://github.com/chapinkapa/novation-mobile/blob/master/LICENSE
 
-MIT
+[npm-version-image]: http://img.shields.io/npm/v/novation-mobile.svg?style=flat-square
+[npm-downloads-image]: http://img.shields.io/npm/dm/novation-mobile.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/novation-mobile
 
-[Novation Mobile]:http://novationmobile.com/#portfolio.html
+[travis-image]: http://img.shields.io/travis/chapinkapa/novation-mobile.svg?style=flat-square
+[travis-url]: http://travis-ci.org/chapinkapa/novation-mobile
