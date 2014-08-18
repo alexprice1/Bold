@@ -86,14 +86,25 @@ Allows you to create custom routes for your app.
 
 ### Standard APIs
 ##### Location: api/
-Allows you to create APIs quickly and APIs that can be access by both socket.io and by RESTful APIs.
+Allows you to create APIs quickly and APIs that can be accessed by both socket.io and by RESTful requests.
 
-For example, if you have a file in api/SomeAPI.js, and the contents are:
+Say I want to call the function 'run' under 'SomeAPI'. I can request the API either using ``http://localhost:4050/api/SomeAPI/run`` or by using sockets on the client:
+
+    socket.emit('SomeAPI', 'run', {
+      testData: 'I Am Groot'
+    }, function(err, data) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(data);
+      }
+    });
+
+The contents of ``api/SomeAPI.js`` then look like:
 
     module.exports = function(data, fn, session, extras) {
 
       exports.run = function() {
-
         console.log(data.testData); // prints "I Am Groot"
 
         var number = Math.random();
@@ -108,18 +119,6 @@ For example, if you have a file in api/SomeAPI.js, and the contents are:
 
       return exports;
     };
-
-Then you can either hit this route using http://localhost:4050/api/test/run or by using sockets on the client and running: 
-
-    socket.emit('SomeAPI', 'run', {
-      testData: 'I Am Groot'
-    }, function(err, data) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(data);
-      }
-    });
 
 ### Mongoose Schema
 ##### Location: schema.js
