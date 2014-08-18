@@ -2,8 +2,7 @@
 
 # Novation-Mobile
 
-Novation-Mobile is a "framework" for Node.js. It was build by [Novation Mobile] to create scaleable Node.js servers with an emphasis on quick, standard development.
-
+Novation-Mobile is a framework using a NodeJS/MongoDB/Socket.IO/Redis stack. It was build by [Novation Mobile] to create scaleable Node.js servers with an emphasis on quick, standardized development.
 
 ## Version
 
@@ -22,12 +21,12 @@ In your web.js file, use the following code:
       preContent: 'routes.js',
       apiLocation: 'api/',
       mongooseSchemaLocation: '_schema.js',
-      appName: "ExampleApp",
-      server: "Main",
+      appName: 'ExampleApp',
+      server: 'Main',
       turnOffAwesomeLogs:true,
-      viewEngine:"jade",
-      viewDirectory:"views",
-      publicDirectory:"public"
+      viewEngine:'jade',
+      viewDirectory:'views',
+      publicDirectory:'public'
     };
 
     nm.extra(__dirname).server(config);
@@ -39,12 +38,12 @@ Each option should be customized for your app.
 1. **useStaticServer:** Wether to allow the server to act as a static server for a specified folder. Used with viewEngine, viewDirectory, and publicDirectory. Defaults to true.
 1. **viewEngine:** Which view engine to use. Example: jade, html, handlebars, etc.
 1. **publicDirectory:** Which directory to be used as your 'static folder.'
-1. **favicon:** Location of your favicon. Defaults to "public".
-1. **[envLocation](#environmental-variables)**: Location of your environmenta
+1. **favicon:** Location of your favicon. Defaults to 'public'.
+1. **[envLocation](#environmental-variables)**: Location of your environmental variables.
 1. **[preContent](#routes)**: Location of your routes that run before api routes.
 1. **[postContent](#routes)**: Location of your routes that run after api routes.
-1. **[apiLocation](#standard-apis)**: Location of your api files/functions. Defaults to "api".
-1. **[mongooseSchemaLocation](#mongoose-schema)**: Location of your mongoose schema. Defaults to "_schema.js".
+1. **[apiLocation](#standard-apis)**: Location of your api files/functions. Defaults to 'api'.
+1. **[mongooseSchemaLocation](#mongoose-schema)**: Location of your mongoose schema. Defaults to '_schema.js'.
 1. **appName**: Name of your app.
 1. **server**: Name of the server that the current code is running on.
 1. **turnOffAwesomeLogs**: If you want to turn off our custom redis-logger.
@@ -80,8 +79,8 @@ Allows you to create custom routes for your app.
 
     exports.content = function(app, io) {
       //you can use this page for additional, custom routes;
-      app.get("/",function(req,res,next){
-        res.send("This is an example server");
+      app.get('/',function(req,res,next){
+        res.send('This is an example server');
       });
     };
 
@@ -95,10 +94,10 @@ For example, if you have a file in api/test.js, and the contents are:
       exports.run=function(){
         var number = Math.random();
         if(number<.5){
-          return fn("This is a standard error message.");
+          return fn('This is a standard error message.');
         } else {
           return fn(null,{
-            data:"This the standard way to send data back to the client."
+            data:'This the standard way to send data back to the client.'
           });
         }
       };
@@ -107,7 +106,7 @@ For example, if you have a file in api/test.js, and the contents are:
 
 Then you can either hit this route using http://localhost:4050/api/test/run or by using sockets on the client and running: 
 
-    socket.emit("api","test","run",{data:"customData"},function(err,data){
+    socket.emit('api','test','run',{data:'customData'},function(err,data){
       if(err){
         console.log(err);
       } else {
@@ -115,12 +114,12 @@ Then you can either hit this route using http://localhost:4050/api/test/run or b
       }
     });
 
-###Mongoose Schema
+### Mongoose Schema
 ##### Location: schema.js
 Allows you to create a mongoose schema that can be used throughout your app. Configure your file to look like this:
 
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+    var mongoose = require('mongoose');
+    var Schema = mongoose.Schema;
 
     exports.User = mongoose.model('User', new Schema({
       createdAt: Date,
