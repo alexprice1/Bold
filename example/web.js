@@ -4,7 +4,7 @@ var nm = require('../lib/server.js');
 var config = {
   port: process.argv[2] || 4050,
   useStaticServer: true,
-  favicon: '/favicon.ico',
+  favicon: 'favicon.ico',
   envLocation: '_env.js',
   preContent: 'routes.js',
   apiLocation: 'api/',
