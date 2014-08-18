@@ -63,9 +63,7 @@ Allows you to set environment variables used throughout the app:
 
     exports.configureEnvironment = function(app, process) {
 
-      process.env['SESSION_KEY'] = 'session_key.sid';
-      process.env['SESSION_SECRET'] = 'aaabbbccc111';
-      process.env['COOKIE_SECRET'] = '222eee999qqq';
+      process.env['SOME_API_KEY'] = 'aaabbbccc111';
 
       if (app.get('env') == 'development') {
         // set variables for development
