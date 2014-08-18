@@ -2,7 +2,11 @@
 
 # Novation-Mobile
 
-Novation-Mobile is a framework using a NodeJS/MongoDB/Socket.IO/Redis stack. It was build by [Novation Mobile] to create scaleable Node.js servers with an emphasis on quick, standardized development.
+Novation-Mobile is a framework using a NodeJS/MongoDB + Mongoose/Socket.IO/Redis stack. It was built by [Novation Mobile](http://www.novationmobile.com) to create scaleable Node.js servers with an emphasis on quick, standardized development.
+
+Get the source from [GitHub](https://github.com/chapinkapa/novation-mobile) or install via NPM
+
+    npm install novation-mobile --save
 
 ## Version
 
@@ -10,9 +14,10 @@ Novation-Mobile is a framework using a NodeJS/MongoDB/Socket.IO/Redis stack. It 
 
 ## How to use
 
-In your web.js file, use the following code:
+In a web.js file at your project root, use the following to set up a novation-mobile server:
 
     var nm = require('novation-mobile');
+
     var config = {
       port: process.argv[2] || 4050,
       useStaticServer: true,
@@ -34,6 +39,7 @@ In your web.js file, use the following code:
 Each option should be customized for your app. 
 
 #### Config Options:
+
 1. **port:** What port to run server on. Defaults to process.env.PORT and then to 4050.
 1. **useStaticServer:** Wether to allow the server to act as a static server for a specified folder. Used with viewEngine, viewDirectory, and publicDirectory. Defaults to true.
 1. **viewEngine:** Which view engine to use. Example: jade, html, handlebars, etc.
@@ -59,7 +65,9 @@ Each option should be customized for your app.
 ## Components
 
 ### Environmental Variables
+
 ##### Location: _env.js
+
 Allows you to set environment variables used throughout the app:
 
     exports.configureEnvironment = function(app, process) {
@@ -73,8 +81,10 @@ Allows you to set environment variables used throughout the app:
       }
     };
 
-### Routes 
+### Routes
+
 ##### Location: routes.js
+
 Allows you to create custom routes for your app.
 
     exports.content = function(app, io) {
@@ -85,8 +95,10 @@ Allows you to create custom routes for your app.
     };
 
 ### Standard APIs
+
 ##### Location: api/
-Allows you to create APIs quickly and APIs that can be accessed by both socket.io and by RESTful requests.
+
+Allows you to create APIs that can be accessed by both socket.io and by RESTful requests.
 
 Say I want to call the function 'run' under 'SomeAPI'. I can request the API either using ``http://localhost:4050/api/SomeAPI/run`` or by using sockets on the client:
 
@@ -121,7 +133,9 @@ The contents of ``api/SomeAPI.js`` then look like:
     };
 
 ### Mongoose Schema
+
 ##### Location: schema.js
+
 Allows you to create a mongoose schema that can be used throughout your app. Configure your file to look like this:
 
     var mongoose = require('mongoose');
