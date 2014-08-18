@@ -59,6 +59,24 @@ Each option should be customized for your app.
 
 Components
 ----
+###Environmental Variables
+##### Location: _env.js
+Allows you to create a mongoose schema that can be used throughout your app. Configure your file to look like this:
+```
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
+exports.User = mongoose.model('User', new Schema({
+  createdAt: Date,
+  updatedAt: {
+    type: Date,
+    default: Date.now
+  },
+  firstName:String,
+  lastName:String,
+  fullName:String
+}));
+```
 ###Routes 
 ##### Location: routes.js
 Allows you to create custom routes for your app.
@@ -103,24 +121,6 @@ socket.emit("api","test","run",{data:"customData"},function(err,data){
 ```
 ###Mongoose Schema
 ##### Location: schema.js
-Allows you to create a mongoose schema that can be used throughout your app. Configure your file to look like this:
-```
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-
-exports.User = mongoose.model('User', new Schema({
-  createdAt: Date,
-  updatedAt: {
-    type: Date,
-    default: Date.now
-  },
-  firstName:String,
-  lastName:String,
-  fullName:String
-}));
-```
-###Environmental Variables
-##### Location: _env.js
 Allows you to create a mongoose schema that can be used throughout your app. Configure your file to look like this:
 ```
 var mongoose = require('mongoose');
