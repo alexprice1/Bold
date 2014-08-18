@@ -29,6 +29,8 @@ In a web.js file at your project root, use the following to set up a novation-mo
       appName: 'ExampleApp',
       server: 'Main',
       turnOffAwesomeLogs: true,
+      loggerUsername: '',
+      loggerPassword: '',
       viewEngine: 'jade',
       viewDirectory: 'views',
       publicDirectory: 'public'
@@ -53,6 +55,8 @@ Each option should be customized for your app.
 1. **appName**: Name of your app.
 1. **server**: Name of the server that the current code is running on.
 1. **turnOffAwesomeLogs**: If you want to turn off our custom redis-logger.
+1. **loggerUsername**: username to access the redis-logger
+1. **loggerPassword**: password to access the redis-logger
 1. **servers**: An array of servers that is used by redis-logger and socket.io-online-users.
 1. **ssl**: An object of options to use ssl on your node server.
 1. **ssl.key:** Location of key file to use.
