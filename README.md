@@ -23,10 +23,10 @@ In your web.js file, use the following code:
       mongooseSchemaLocation: '_schema.js',
       appName: 'ExampleApp',
       server: 'Main',
-      turnOffAwesomeLogs:true,
-      viewEngine:'jade',
-      viewDirectory:'views',
-      publicDirectory:'public'
+      turnOffAwesomeLogs: true,
+      viewEngine: 'jade',
+      viewDirectory: 'views',
+      publicDirectory: 'public'
     };
 
     nm.extra(__dirname).server(config);
@@ -78,8 +78,8 @@ Allows you to set environment variables used throughout the app:
 Allows you to create custom routes for your app.
 
     exports.content = function(app, io) {
-      //you can use this page for additional, custom routes;
-      app.get('/',function(req,res,next){
+      // you can use this page for additional, custom routes
+      app.get('/', function(req, res, next) {
         res.send('This is an example server');
       });
     };
@@ -88,26 +88,33 @@ Allows you to create custom routes for your app.
 ##### Location: api/
 Allows you to create APIs quickly and APIs that can be access by both socket.io and by RESTful APIs.
 
-For example, if you have a file in api/test.js, and the contents are:
+For example, if you have a file in api/SomeAPI.js, and the contents are:
 
-    module.exports=function(data,fn,session,extras){
-      exports.run=function(){
+    module.exports = function(data, fn, session, extras) {
+
+      exports.run = function() {
+
+        console.log(data.testData); // prints "I Am Groot"
+
         var number = Math.random();
-        if(number<.5){
+        if (number < .5) {
           return fn('This is a standard error message.');
         } else {
-          return fn(null,{
-            data:'This the standard way to send data back to the client.'
+          return fn(null, {
+            data: 'This the standard way to send data back to the client.'
           });
         }
       };
+
       return exports;
     };
 
 Then you can either hit this route using http://localhost:4050/api/test/run or by using sockets on the client and running: 
 
-    socket.emit('api','test','run',{data:'customData'},function(err,data){
-      if(err){
+    socket.emit('SomeAPI', 'run', {
+      testData: 'I Am Groot'
+    }, function(err, data) {
+      if (err) {
         console.log(err);
       } else {
         console.log(data);
