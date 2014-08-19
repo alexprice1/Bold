@@ -24,6 +24,7 @@
   "dependencies": {
     "basic-auth-connect": "^1.0.0",
     "body-parser": "^1.2.2",
+    "cli-color": "^0.3.2",
     "connect": "^3.0.0-rc.2",
     "connect-basic-auth": "^0.1.0",
     "connect-redis": "2.0.*",
