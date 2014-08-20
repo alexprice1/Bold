@@ -14,7 +14,7 @@ describe('server test', function() {
   // test server
   it('Tests to ensure server setup is configured correctly', function() {
     var test = true;
-    expect(result).equals(true);
+    expect(test).equals(true);
   });
 
 });
