@@ -75,14 +75,15 @@ Each option should be customized for your app.
 Allows you to set environment variables used throughout the app:
 
     exports.configureEnvironment = function(app, process) {
+      // required variables
+      process.env['SESSION_KEY'] = 'my_express.sid';
+      process.env['SESSION_SECRET'] = 'exampleSecret';
+      process.env['COOKIE_SECRET'] = 'ExampleCookie';
+      process.env.MONGO_URI = '';
+      process.env.REDIS_URI = 'redis://redis:redis@ip:port/dbindex';
 
-      process.env['SOME_API_KEY'] = 'aaabbbccc111';
-
-      if (app.get('env') == 'development') {
-        // set variables for development
-      } else {
-        // set variables for production
-      }
+      // add your own
+      process.env['SOME_API_KEY'] = 'aaa111nnn123';
     };
 
 ### Routes
