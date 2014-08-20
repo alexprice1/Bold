@@ -7,7 +7,7 @@ exports.User = mongoose.model('User', new Schema({
     type: Date,
     default: Date.now
   },
-  firstName:String,
-  lastName:String,
-  fullName:String
+  firstName: String,
+  lastName: String,
+  fullName: String
 }));
