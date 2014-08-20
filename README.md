@@ -10,7 +10,7 @@ Get the source from [GitHub](https://github.com/chapinkapa/novation-mobile) or i
 
 ## Version
 
-0.1.4
+0.1.6
 
 ## How to use
 
