@@ -18,6 +18,9 @@
     "url": "https://github.com/chapinkapa/novation-mobile/blob/master/LICENSE"
   },
   "main": "./lib/server",
+  "scripts": {
+    "test": "grunt test"
+  },
   "bugs": {
     "url": "https://github.com/chapinkapa/novation-mobile/issues"
   },
@@ -46,5 +49,11 @@
     "serve-favicon": "^2.0.0",
     "socket.io": "1.0.*",
     "socket.io-redis": "^0.1.2"
+  },
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "grunt": "^0.4.5",
+    "grunt-simple-mocha": "^0.4.0",
+    "mocha": "^1.21.4"
   }
 }

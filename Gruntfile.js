@@ -1,0 +1,22 @@
+/* Grunt Task File */
+
+module.exports = function(grunt) {
+  grunt.initConfig({
+    simplemocha: {
+      options: {
+        timeout: 3000,
+        ignoreLeaks: false
+      },
+      all: {
+        src: ['example/test.js']
+      }
+    }
+  });
+
+
+  // load tasks
+  grunt.loadNpmTasks('grunt-simple-mocha');
+
+  // register tasks
+  grunt.registerTask('test', 'simplemocha');
+};
