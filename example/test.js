@@ -2,11 +2,11 @@
 var expect = require('chai').expect;
 var mongoose = require('mongoose');
 var clc = require('cli-color');
+var os = require('os');
 
 var error = clc.red;
 
 describe('server test', function() {
-
   // server setup
   before(function(done) {
     var nm = require('../lib/server.js');
@@ -20,7 +20,12 @@ describe('server test', function() {
       mongooseSchemaLocation: '_schema.js',
       appName: 'ExampleApp',
       server: 'Main',
-      turnOffAwesomeLogs: true
+      turnOffAwesomeLogs: true,
+      onlineUsersConfig: {
+        servers: ['Main:'+os.hostname()],
+        roomsToListenTo: ['onlineUsers'],
+        expireUser: 20
+      }
     };
 
     nm.extra(__dirname).server(config, function() {
