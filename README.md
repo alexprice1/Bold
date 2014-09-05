@@ -7,7 +7,7 @@ Novation-Mobile is a framework using a NodeJS/MongoDB + Mongoose/Socket.IO/Redis
 Get the source from [GitHub](https://github.com/chapinkapa/novation-mobile) or install via NPM
 
     npm install novation-mobile --save
-**note:** this will take a while. We include all the dependencies to run this.
+**Note:** this will take a while. We include all the dependencies to run this.
 
 ## Version
 
@@ -138,7 +138,7 @@ The contents of ``api/SomeAPI.js`` then look like:
 
       return exports;
     };
-**note:** extras has the following data:
+**Note:** extras has the following data:
 1. mongoose, access to the mongoose variable.
 2. io
 3. socket, the particular socket connection, if available
@@ -167,7 +167,7 @@ Allows you to create a mongoose schema that can be used throughout your app. Con
       lastName:String,
       fullName:String
     }));
-**note:** everything you export in here will be attached to the global scope. It will be accessible throughout your whole server.
+**Note:** everything you export in here will be attached to the global scope. It will be accessible throughout your whole server.
 
 
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
