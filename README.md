@@ -7,6 +7,7 @@ Novation-Mobile is a framework using a NodeJS/MongoDB + Mongoose/Socket.IO/Redis
 Get the source from [GitHub](https://github.com/chapinkapa/novation-mobile) or install via NPM
 
     npm install novation-mobile --save
+**note:** this will take a while. We include all the dependencies to run this.
 
 ## Version
 
