@@ -67,6 +67,7 @@ Each option should be customized for your app.
 1. **ttl:** Time in seconds until redis expires documents. Defaults to 3600.
 1. **onlineUsersConfig:** An object with configuration options to use socket.io-online-users.
 1. **addSocketsToRoom:** A function that is called every API call that allows you to add a socket/user to a room for socket.io. The function has two arguments: (session, socket);
+1. **sslRedirect):** Redirect http to https.
 
 ## Components
 
