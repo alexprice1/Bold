@@ -65,6 +65,7 @@ Each option should be customized for your app.
 1. **dontUseRedisTTL:** do not use a ttl for redis.
 1. **ttl:** Time in seconds until redis expires documents. Defaults to 3600.
 1. **onlineUsersConfig:** An object with configuration options to use socket.io-online-users.
+1. **addSocketsToRoom:** A function that is called every API call that allows you to add a socket/user to a room for socket.io. The function has two arguments: (session, socket);
 
 ## Components
 
@@ -136,6 +137,15 @@ The contents of ``api/SomeAPI.js`` then look like:
 
       return exports;
     };
+**note:** extras has the following data:
+1. mongoose, access to the mongoose variable.
+2. io
+3. socket, the particular socket connection, if available
+4. connectionType, either socket, http, or internal.
+5. fileName, the file that the API is being hit by. 
+6. req, if available
+7. res, if available
+8. method, the method that is being called.
 
 ### Mongoose Schema
 
@@ -156,6 +166,7 @@ Allows you to create a mongoose schema that can be used throughout your app. Con
       lastName:String,
       fullName:String
     }));
+**note:** everything you export in here will be attached to the global scope. It will be accessible throughout your whole server.
 
 
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
