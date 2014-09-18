@@ -20,21 +20,31 @@ In a web.js file at your project root, use the following to set up a novation-mo
     var nm = require('novation-mobile');
 
     var config = {
+      appName: 'ExampleApp',
+      server: 'Main',
       port: process.argv[2] || 4050,
       useStaticServer: true,
       favicon: 'favicon.ico',
       envLocation: '_env.js',
       preContent: 'routes.js',
-      apiLocation: 'api/',
+      postContent: 'routes2.js',
       mongooseSchemaLocation: '_schema.js',
-      appName: 'ExampleApp',
-      server: 'Main',
-      turnOffAwesomeLogs: true,
-      loggerUsername: '',
-      loggerPassword: '',
       viewEngine: 'jade',
       viewDirectory: 'views',
-      publicDirectory: 'public'
+      publicDirectory: 'public',
+      servers: ['Main:' + os.hostname()],
+      logger:{
+        userName: "",
+        password: ""
+      },
+      api: {
+          location: "api",
+          safeMode: false,
+      },
+      onlineUsersConfig: {
+          roomsToListenTo: ['onlineUsers'],
+          expireUser: 20
+      }
     };
 
     nm.extra(__dirname).server(config);
@@ -43,31 +53,35 @@ Each option should be customized for your app.
 
 #### Config Options:
 
+1. **appName**: Name of your app.
+1. **server**: Name of the server that the current code is running on.
 1. **port:** What port to run server on. Defaults to process.env.PORT and then to 4050.
 1. **useStaticServer:** Wether to allow the server to act as a static server for a specified folder. Used with viewEngine, viewDirectory, and publicDirectory. Defaults to true.
-1. **viewEngine:** Which view engine to use. Example: jade, html, handlebars, etc.
-1. **publicDirectory:** Which directory to be used as your 'static folder.'
 1. **favicon:** Location of your favicon. Defaults to 'public'.
 1. **[envLocation](#environmental-variables)**: Location of your environmental variables.
 1. **[preContent](#routes)**: Location of your routes that run before api routes.
 1. **[postContent](#routes)**: Location of your routes that run after api routes.
-1. **[apiLocation](#standard-apis)**: Location of your api files/functions. Defaults to 'api'.
 1. **[mongooseSchemaLocation](#mongoose-schema)**: Location of your mongoose schema. Defaults to '_schema.js'.
-1. **appName**: Name of your app.
-1. **server**: Name of the server that the current code is running on.
-1. **turnOffAwesomeLogs**: If you want to turn off our custom redis-logger.
-1. **loggerUsername**: username to access the redis-logger
-1. **loggerPassword**: password to access the redis-logger
+1. **viewEngine:** Which view engine to use. Example: jade, html, handlebars, etc.
+1. **viewEngine:** Which directory to be used to serve views, if using dynamic views.
+1. **publicDirectory:** Which directory to be used as your 'static folder.'
 1. **servers**: An array of servers that is used by redis-logger and socket.io-online-users.
+1. **logger.username**: username to access the redis-logger
+1. **logger.password**: password to access the redis-logger
+1. **[api.location](#standard-apis)**: Location of your api folder.
+1. **[api.safeMode](#standard-apis)**: Safemode prevents exporting variables other than functions using API.
+1. **[api.version](#standard-apis)**: The version number the server should use for internal calls.
+1. **onlineUsersConfig:** An object with configuration options to use socket.io-online-users.
+1. **onlineUsersConfig.roomsToListenTo**: Socket.io rooms to listen to.
+1. **onlineUsersConfig.expireUser**: When a user loses connection, how long to keep the user in memory until deleting them.
 1. **ssl**: An object of options to use ssl on your node server.
 1. **ssl.key:** Location of key file to use.
 1. **ssl.cert:** Location of the cert file to use.
 1. **ssl.port:** Port to have your node.js https server run on.
+1. **sslRedirect):** Redirect http to https.
 1. **dontUseRedisTTL:** do not use a ttl for redis.
 1. **ttl:** Time in seconds until redis expires documents. Defaults to 3600.
-1. **onlineUsersConfig:** An object with configuration options to use socket.io-online-users.
 1. **addSocketsToRoom:** A function that is called every API call that allows you to add a socket/user to a room for socket.io. The function has two arguments: (session, socket);
-1. **sslRedirect):** Redirect http to https.
 
 ## Components
 
@@ -81,7 +95,7 @@ Allows you to set environment variables used throughout the app:
       // required variables
       process.env['SESSION_KEY'] = 'my_express.sid';
       process.env['SESSION_SECRET'] = 'exampleSecret';
-      process.env['COOKIE_SECRET'] = 'ExampleCookie';
+      process.env['COOKIE_KEY'] = 'ExampleCookie';
       process.env.MONGO_URI = '';
       process.env.REDIS_URI = 'redis://redis:redis@ip:port/dbindex';
 
