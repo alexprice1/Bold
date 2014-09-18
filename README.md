@@ -78,7 +78,7 @@ Each option should be customized for your app.
 1. **ssl.key:** Location of key file to use.
 1. **ssl.cert:** Location of the cert file to use.
 1. **ssl.port:** Port to have your node.js https server run on.
-1. **sslRedirect):** Redirect http to https.
+1. **sslRedirect:** Redirect http to https.
 1. **dontUseRedisTTL:** do not use a ttl for redis.
 1. **ttl:** Time in seconds until redis expires documents. Defaults to 3600.
 1. **addSocketsToRoom:** A function that is called every API call that allows you to add a socket/user to a room for socket.io. The function has two arguments: (session, socket);
