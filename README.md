@@ -135,23 +135,17 @@ Say I want to call the function 'run' under 'SomeAPI'. I can request the API eit
     });
 
 The contents of ``api/SomeAPI.js`` then look like:
+    exports.run = function() {
+      console.log(data.testData); // prints "I Am Groot"
 
-    module.exports = function(data, fn, session, extras) {
-
-      exports.run = function() {
-        console.log(data.testData); // prints "I Am Groot"
-
-        var number = Math.random();
-        if (number < .5) {
-          return fn('This is a standard error message.');
-        } else {
-          return fn(null, {
-            data: 'This the standard way to send data back to the client.'
-          });
-        }
-      };
-
-      return exports;
+      var number = Math.random();
+      if (number < .5) {
+        return fn('This is a standard error message.');
+      } else {
+        return fn(null, {
+          data: 'This the standard way to send data back to the client.'
+        });
+      }
     };
 **Note:** extras has the following data:
 1. mongoose, access to the mongoose variable.
