@@ -157,6 +157,25 @@ The contents of ``api/SomeAPI.js`` then look like:
 7. res, if available
 8. method, the method that is being called.
 
+###### API Middleware Example
+    function testSession(data,fn,session,extras,next){
+      if(!session){
+        return fn("You have to have a session for this.");
+      } else {
+        return next();
+      }
+    }
+
+    exports.testSession=API2(testSession,testSession,function(data,fn,session,extras){
+      fn(null,"You have a session!");
+    });
+
+    exports.fn=function(){
+      fn(null,'yay!!');
+    };
+
+    exports.staticVariacle=1;
+
 ### Mongoose Schema
 
 ##### Location: schema.js
