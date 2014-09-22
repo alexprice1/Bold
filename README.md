@@ -156,6 +156,7 @@ The contents of ``api/SomeAPI.js`` then look like:
 6. req, if available
 7. res, if available
 8. method, the method that is being called.
+9. IP Address
 
 ###### API Middleware Example
     function testSession(data,fn,session,extras,next){
