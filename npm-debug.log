@@ -1,0 +1,95 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 verbose publish [ '.' ]
+5 verbose cache add [ '.', null ]
+6 verbose cache add name=undefined spec="." args=[".",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: '.',
+7 verbose parsed url   path: '.',
+7 verbose parsed url   href: '.' }
+8 silly lockFile 3a52ce78- .
+9 verbose lock . /Users/alexander/.npm/3a52ce78-.lock
+10 verbose tar pack [ '/Users/alexander/.npm/novation-mobile/0.2.4/package.tgz',
+10 verbose tar pack   '.' ]
+11 verbose tarball /Users/alexander/.npm/novation-mobile/0.2.4/package.tgz
+12 verbose folder .
+13 info prepublish novation-mobile@0.2.4
+14 silly lockFile 1f1177db-tar tar://.
+15 verbose lock tar://. /Users/alexander/.npm/1f1177db-tar.lock
+16 silly lockFile e48f49b5-ovation-mobile-0-2-4-package-tgz tar:///Users/alexander/.npm/novation-mobile/0.2.4/package.tgz
+17 verbose lock tar:///Users/alexander/.npm/novation-mobile/0.2.4/package.tgz /Users/alexander/.npm/e48f49b5-ovation-mobile-0-2-4-package-tgz.lock
+18 silly lockFile 1f1177db-tar tar://.
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile e48f49b5-ovation-mobile-0-2-4-package-tgz tar:///Users/alexander/.npm/novation-mobile/0.2.4/package.tgz
+21 silly lockFile e48f49b5-ovation-mobile-0-2-4-package-tgz tar:///Users/alexander/.npm/novation-mobile/0.2.4/package.tgz
+22 silly lockFile 999fb3a1-pm-novation-mobile-0-2-4-package /Users/alexander/.npm/novation-mobile/0.2.4/package
+23 verbose lock /Users/alexander/.npm/novation-mobile/0.2.4/package /Users/alexander/.npm/999fb3a1-pm-novation-mobile-0-2-4-package.lock
+24 silly lockFile 999fb3a1-pm-novation-mobile-0-2-4-package /Users/alexander/.npm/novation-mobile/0.2.4/package
+25 silly lockFile 999fb3a1-pm-novation-mobile-0-2-4-package /Users/alexander/.npm/novation-mobile/0.2.4/package
+26 silly lockFile 3a52ce78- .
+27 silly lockFile 3a52ce78- .
+28 silly publish { author: { name: 'Novation Mobile' },
+28 silly publish   name: 'novation-mobile',
+28 silly publish   description: 'A configured server for node',
+28 silly publish   version: '0.2.4',
+28 silly publish   repository:
+28 silly publish    { url: 'https://github.com/chapinkapa/novation-mobile/',
+28 silly publish      type: 'git' },
+28 silly publish   keywords: [ 'framework' ],
+28 silly publish   license: 'MIT',
+28 silly publish   licenses:
+28 silly publish    { type: 'MIT',
+28 silly publish      url: 'https://github.com/chapinkapa/novation-mobile/blob/master/LICENSE' },
+28 silly publish   main: './lib/server',
+28 silly publish   scripts: { test: 'grunt test' },
+28 silly publish   bugs: { url: 'https://github.com/chapinkapa/novation-mobile/issues' },
+28 silly publish   dependencies:
+28 silly publish    { 'body-parser': '1.2.x',
+28 silly publish      'cli-color': '0.3.x',
+28 silly publish      connect: '^3.0.0-rc.2',
+28 silly publish      'connect-redis': '2.0.x',
+28 silly publish      cookie: '0.1.x',
+28 silly publish      'cookie-parser': '1.1.x',
+28 silly publish      'cookie-signature': '1.0.x',
+28 silly publish      errorhandler: '1.0.x',
+28 silly publish      express: '4.3.x',
+28 silly publish      'express-session': '1.2.x',
+28 silly publish      indexof: '0.0.x',
+28 silly publish      'method-override': '1.0.x',
+28 silly publish      mongoose: '3.8.x',
+28 silly publish      redis: '0.10.x',
+28 silly publish      'redis-logger': '*',
+28 silly publish      'serve-favicon': '2.0.x',
+28 silly publish      'socket.io': '1.1.x',
+28 silly publish      'socket.io-redis': '0.1.x',
+28 silly publish      'socket.io-online-users': '*' },
+28 silly publish   devDependencies:
+28 silly publish    { chai: '^1.9.1',
+28 silly publish      grunt: '^0.4.5',
+28 silly publish      'grunt-simple-mocha': '^0.4.0',
+28 silly publish      mocha: '^1.21.4' },
+28 silly publish   readme: '[![NPM version][npm-version-image]][npm-url] [![NPM downloads][npm-downloads-image]][npm-url] [![MIT License][license-image]][license-url] [![Build Status][travis-image]][travis-url]\n\n# Novation-Mobile\n\nNovation-Mobile is a framework using a NodeJS/MongoDB + Mongoose/Socket.IO/Redis stack. It was built by [Novation Mobile](http://www.novationmobile.com) to create scaleable Node.js servers with an emphasis on quick, standardized development.\n\nGet the source from [GitHub](https://github.com/chapinkapa/novation-mobile) or install via NPM\n\n    npm install novation-mobile --save\n**Note:** this will take a while. We include all the dependencies to run this.\n\n## Version\n\n0.1.6\n\n## How to use\n\nIn a web.js file at your project root, use the following to set up a novation-mobile server:\n\n    var nm = require(\'novation-mobile\');\n\n    var config = {\n      appName: \'ExampleApp\',\n      server: \'Main\',\n      port: process.argv[2] || 4050,\n      useStaticServer: true,\n      favicon: \'favicon.ico\',\n      envLocation: \'_env.js\',\n      preContent: \'routes.js\',\n      postContent: \'routes2.js\',\n      mongooseSchemaLocation: \'_schema.js\',\n      viewEngine: \'jade\',\n      viewDirectory: \'views\',\n      publicDirectory: \'public\',\n      servers: [\'Main:\' + os.hostname()],\n      logger:{\n        userName: "",\n        password: ""\n      },\n      api: {\n          location: "api",\n          safeMode: false,\n      },\n      onlineUsersConfig: {\n          roomsToListenTo: [\'onlineUsers\'],\n          expireUser: 20\n      }\n    };\n\n    nm.extra(__dirname).server(config);\n\nEach option should be customized for your app. \n\n#### Config Options:\n\n1. **appName**: Name of your app.\n1. **server**: Name of the server that the current code is running on.\n1. **port:** What port to run server on. Defaults to process.env.PORT and then to 4050.\n1. **useStaticServer:** Wether to allow the server to act as a static server for a specified folder. Used with viewEngine, viewDirectory, and publicDirectory. Defaults to true.\n1. **favicon:** Location of your favicon. Defaults to \'public\'.\n1. **[envLocation](#environmental-variables)**: Location of your environmental variables.\n1. **[preContent](#routes)**: Location of your routes that run before api routes.\n1. **[postContent](#routes)**: Location of your routes that run after api routes.\n1. **[mongooseSchemaLocation](#mongoose-schema)**: Location of your mongoose schema. Defaults to \'_schema.js\'.\n1. **viewEngine:** Which view engine to use. Example: jade, html, handlebars, etc.\n1. **viewEngine:** Which directory to be used to serve views, if using dynamic views.\n1. **publicDirectory:** Which directory to be used as your \'static folder.\'\n1. **servers**: An array of servers that is used by redis-logger and socket.io-online-users.\n1. **logger.username**: username to access the redis-logger\n1. **logger.password**: password to access the redis-logger\n1. **[api.location](#standard-apis)**: Location of your api folder.\n1. **[api.safeMode](#standard-apis)**: Safemode prevents exporting variables other than functions using API.\n1. **[api.version](#standard-apis)**: The version number the server should use for internal calls.\n1. **onlineUsersConfig:** An object with configuration options to use socket.io-online-users.\n1. **onlineUsersConfig.roomsToListenTo**: Socket.io rooms to listen to.\n1. **onlineUsersConfig.expireUser**: When a user loses connection, how long to keep the user in memory until deleting them.\n1. **ssl**: An object of options to use ssl on your node server.\n1. **ssl.key:** Location of key file to use.\n1. **ssl.cert:** Location of the cert file to use.\n1. **ssl.port:** Port to have your node.js https server run on.\n1. **sslRedirect:** Redirect http to https.\n1. **dontUseRedisTTL:** do not use a ttl for redis.\n1. **ttl:** Time in seconds until redis expires documents. Defaults to 3600.\n1. **addSocketsToRoom:** A function that is called every API call that allows you to add a socket/user to a room for socket.io. The function has two arguments: (session, socket);\n\n## Components\n\n### Environmental Variables\n\n##### Location: _env.js\n\nAllows you to set environment variables used throughout the app:\n\n    exports.configureEnvironment = function(app, process) {\n      // required variables\n      process.env[\'SESSION_KEY\'] = \'my_express.sid\';\n      process.env[\'SESSION_SECRET\'] = \'exampleSecret\';\n      process.env[\'COOKIE_KEY\'] = \'ExampleCookie\';\n      process.env.MONGO_URI = \'\';\n      process.env.REDIS_URI = \'redis://redis:redis@ip:port/dbindex\';\n\n      // add your own\n      process.env[\'SOME_API_KEY\'] = \'aaa111nnn123\';\n    };\n\n### Routes\n\n##### Location: routes.js\n\nAllows you to create custom routes for your app.\n\n    exports.content = function(app, io) {\n      // you can use this page for additional, custom routes\n      app.get(\'/\', function(req, res, next) {\n        res.send(\'This is an example server\');\n      });\n    };\n\n### Standard APIs\n\n##### Location: api/\n\nAllows you to create APIs that can be accessed by both socket.io and by RESTful requests.\n\nSay I want to call the function \'run\' under \'SomeAPI\'. I can request the API either using ``http://localhost:4050/api/SomeAPI/run`` or by using sockets on the client:\n\n    socket.emit(\'api\', \'SomeAPI\', \'run\', {\n      testData: \'I Am Groot\'\n    }, function(err, data) {\n      if (err) {\n        console.log(err);\n      } else {\n        console.log(data);\n      }\n    });\n\nThe contents of ``api/SomeAPI.js`` then look like:\n    exports.run = function() {\n      console.log(data.testData); // prints "I Am Groot"\n\n      var number = Math.random();\n      if (number < .5) {\n        return fn(\'This is a standard error message.\');\n      } else {\n        return fn(null, {\n          data: \'This the standard way to send data back to the client.\'\n        });\n      }\n    };\n**Note:** extras has the following data:\n1. mongoose, access to the mongoose variable.\n2. io\n3. socket, the particular socket connection, if available\n4. connectionType, either socket, http, or internal.\n5. fileName, the file that the API is being hit by. \n6. req, if available\n7. res, if available\n8. method, the method that is being called.\n9. IP Address\n\n###### API Middleware Example\n    function testSession(data,fn,session,extras,next){\n      if(!session){\n        return fn("You have to have a session for this.");\n      } else {\n        return next();\n      }\n    }\n\n    exports.testSession=API2(testSession,testSession,function(data,fn,session,extras){\n      fn(null,"You have a session!");\n    });\n\n    exports.fn=function(){\n      fn(null,\'yay!!\');\n    };\n\n    exports.staticVariacle=1;\n\n### Mongoose Schema\n\n##### Location: schema.js\n\nAllows you to create a mongoose schema that can be used throughout your app. Configure your file to look like this:\n\n    var mongoose = require(\'mongoose\');\n    var Schema = mongoose.Schema;\n\n    exports.User = mongoose.model(\'User\', new Schema({\n      createdAt: Date,\n      updatedAt: {\n        type: Date,\n        default: Date.now\n      },\n      firstName:String,\n      lastName:String,\n      fullName:String\n    }));\n**Note:** everything you export in here will be attached to the global scope. It will be accessible throughout your whole server.\n\n\n[license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square\n[license-url]: https://github.com/chapinkapa/novation-mobile/blob/master/LICENSE\n\n[npm-version-image]: http://img.shields.io/npm/v/novation-mobile.svg?style=flat-square\n[npm-downloads-image]: http://img.shields.io/npm/dm/novation-mobile.svg?style=flat-square\n[npm-url]: https://npmjs.org/package/novation-mobile\n\n[travis-image]: http://img.shields.io/travis/chapinkapa/novation-mobile.svg?style=flat-square\n[travis-url]: http://travis-ci.org/chapinkapa/novation-mobile',
+28 silly publish   readmeFilename: 'README.md',
+28 silly publish   gitHead: '08f69e738347b73655902ccb278977c79538c94d',
+28 silly publish   _id: 'novation-mobile@0.2.4',
+28 silly publish   _shasum: '973a7d4da01e75846a7930060030bfca4305486b',
+28 silly publish   _from: '.' }
+29 error need auth auth and email required for publishing
+29 error need auth You need to authorize this machine using `npm adduser`
+30 error System Darwin 13.4.0
+31 error command "node" "/usr/local/bin/npm" "publish"
+32 error cwd /Users/alexander/github/novation-mobile
+33 error node -v v0.10.32
+34 error npm -v 1.4.28
+35 error code ENEEDAUTH
+36 verbose exit [ 1, true ]
