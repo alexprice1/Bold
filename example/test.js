@@ -17,7 +17,7 @@ describe('server test', function() {
       envLocation: '_env.js',
       preContent: 'routes.js',
       mongooseSchemaLocation: '_schema.js',
-      port: process.argv[2] || 4050,
+      port: 4050,
       useStaticServer: true,
       useStaticServer: true,
       turnOffAwesomeLogs: true,
@@ -33,7 +33,8 @@ describe('server test', function() {
       }
     };
 
-    nm.extra(__dirname).server(config, function() {
+    var nm =nm.extra(__dirname);
+    nm.server(config, function() {
       done();
     });
   });
