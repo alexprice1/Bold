@@ -4,7 +4,7 @@
   },
   "name": "novation-mobile",
   "description": "A configured server for node",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "repository": {
     "url": "https://github.com/chapinkapa/novation-mobile/",
     "type": "git"
@@ -41,7 +41,7 @@
     "redis": "0.10.x",
     "redis-logger": "*",
     "serve-favicon": "2.0.x",
-    "socket.io": "1.1.x",
+    "socket.io": "1.2.x",
     "socket.io-redis": "0.1.x",
     "socket.io-online-users": "*"
   },

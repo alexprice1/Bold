@@ -13,7 +13,6 @@ module.exports = function(grunt) {
     }
   });
 
-
   // load tasks
   grunt.loadNpmTasks('grunt-simple-mocha');
 

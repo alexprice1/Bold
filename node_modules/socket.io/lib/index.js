@@ -64,6 +64,7 @@ Server.prototype.checkRequest = function(req, fn) {
   // file:// URLs produce a null Origin which can't be authorized via echo-back
   if ('null' == origin) origin = '*';
 
+  if (!!origin && typeof(this._origins) == 'function') return this._origins(origin, fn);
   if (this._origins.indexOf('*:*') !== -1) return fn(null, true);
   if (origin) {
     try {
@@ -211,11 +212,12 @@ Server.prototype.attach = function(srv, opts){
       res.end();
     });
     srv.listen(port);
+
   }
 
   // set engine.io path to `/socket.io`
   opts = opts || {};
-  opts.path = opts.path || '/socket.io';
+  opts.path = opts.path || this.path();
   // set origins verification
   opts.allowRequest = this.checkRequest.bind(this);
 
@@ -225,6 +227,9 @@ Server.prototype.attach = function(srv, opts){
 
   // attach static file serving
   if (this._serveClient) this.attachServe(srv);
+
+  // Export http server
+  this.httpServer = srv;
 
   // bind to engine events
   this.bind(this.eio);
@@ -265,8 +270,9 @@ Server.prototype.attachServe = function(srv){
  */
 
 Server.prototype.serve = function(req, res){
-  if (req.headers.etag) {
-    if (clientVersion == req.headers.etag) {
+  var etag = req.headers['if-none-match'];
+  if (etag) {
+    if (clientVersion == etag) {
       debug('serve client 304');
       res.writeHead(304);
       res.end();
@@ -319,6 +325,8 @@ Server.prototype.onconnection = function(conn){
  */
 
 Server.prototype.of = function(name, fn){
+  if (String(name)[0] !== '/') name = '/' + name;
+  
   if (!this.nsps[name]) {
     debug('initializing namespace %s', name);
     var nsp = new Namespace(this, name);
@@ -326,6 +334,24 @@ Server.prototype.of = function(name, fn){
   }
   if (fn) this.nsps[name].on('connect', fn);
   return this.nsps[name];
+};
+
+/**
+ * Closes server connection
+ *
+ * @api public
+ */
+
+Server.prototype.close = function(){
+  this.nsps['/'].sockets.forEach(function(socket){
+    socket.onclose();
+  });
+
+  this.engine.close();
+
+  if(this.httpServer){
+    this.httpServer.close();
+  }
 };
 
 /**

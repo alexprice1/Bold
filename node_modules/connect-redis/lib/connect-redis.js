@@ -9,6 +9,9 @@
  */
 
 var debug = require('debug')('connect:redis');
+var redis = require('redis');
+var default_port = 6379;
+var default_host = '127.0.0.1';
 
 /**
  * One day in seconds.
@@ -49,6 +52,7 @@ module.exports = function(session){
       : options.prefix;
 
     if (options.url) {
+      console.error('Warning: "url" param is deprecated and will be removed in a later release')
       var url = require('url').parse(options.url);
       if (url.protocol === 'redis:') {
         if (url.auth) {
@@ -66,17 +70,38 @@ module.exports = function(session){
       }
     }
 
-    this.client = options.client || new require('redis').createClient(options.port || options.socket, options.host, options);
+    // convert to redis connect params
+    if (options.client) {
+      this.client = options.client
+    }
+    else if (options.socket) {
+      this.client = redis.createClient(options.socket, options)
+    }
+    else if (options.port || options.host) {
+      this.client = redis.createClient(
+        options.port || default_port,
+        options.host || default_host,
+        options
+      )
+    }
+    else {
+      this.client = redis.createClient(options)
+    }
 
     if (options.pass) {
       this.client.auth(options.pass, function(err){
         if (err) throw err;
-      });    
+      });
     }
 
     this.ttl =  options.ttl;
 
+    if (options.unref) this.client.unref()
+
     if (options.db) {
+      if (typeof options.db !== 'number')
+        console.error('Warning: connect-redis expects a number for the "db" option')
+
       self.client.select(options.db);
       self.client.on("connect", function() {
         self.client.send_anyways = true;
