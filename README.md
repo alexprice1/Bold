@@ -7,6 +7,7 @@ Novation-Mobile is a framework using a NodeJS/MongoDB + Mongoose/Socket.IO/Redis
 Get the source from [GitHub](https://github.com/chapinkapa/novation-mobile) or install via NPM
 
     npm install novation-mobile --save
+
 **Note:** this will take a while. We include all the dependencies to run this.
 
 ## Version
@@ -33,17 +34,17 @@ In a web.js file at your project root, use the following to set up a novation-mo
       viewDirectory: 'views',
       publicDirectory: 'public',
       servers: ['Main:' + os.hostname()],
-      logger:{
-        userName: "",
-        password: ""
+      logger: {
+        userName: '',
+        password: ''
       },
       api: {
-          location: "api",
-          safeMode: false,
+        location: 'api',
+        safeMode: false,
       },
       onlineUsersConfig: {
-          roomsToListenTo: ['onlineUsers'],
-          expireUser: 20
+        roomsToListenTo: ['onlineUsers'],
+        expireUser: 20
       }
     };
 
@@ -135,6 +136,7 @@ Say I want to call the function 'run' under 'SomeAPI'. I can request the API eit
     });
 
 The contents of ``api/SomeAPI.js`` then look like:
+
     exports.run = function() {
       console.log(data.testData); // prints "I Am Groot"
 
@@ -147,6 +149,7 @@ The contents of ``api/SomeAPI.js`` then look like:
         });
       }
     };
+
 **Note:** extras has the following data:
 1. mongoose, access to the mongoose variable.
 2. io
@@ -159,6 +162,7 @@ The contents of ``api/SomeAPI.js`` then look like:
 9. IP Address
 
 ###### API Middleware Example
+
     function testSession(data,fn,session,extras,next){
       if(!session){
         return fn("You have to have a session for this.");
@@ -168,11 +172,11 @@ The contents of ``api/SomeAPI.js`` then look like:
     }
 
     exports.testSession=API2(testSession,testSession,function(data,fn,session,extras){
-      fn(null,"You have a session!");
+      fn(null, 'You have a session!');
     });
 
     exports.fn=function(){
-      fn(null,'yay!!');
+      fn(null, 'yay!!');
     };
 
     exports.staticVariacle=1;
@@ -187,15 +191,11 @@ Allows you to create a mongoose schema that can be used throughout your app. Con
     var Schema = mongoose.Schema;
 
     exports.User = mongoose.model('User', new Schema({
-      createdAt: Date,
-      updatedAt: {
-        type: Date,
-        default: Date.now
-      },
-      firstName:String,
-      lastName:String,
-      fullName:String
+      firstName: String,
+      lastName: String,
+      fullName: String
     }));
+
 **Note:** everything you export in here will be attached to the global scope. It will be accessible throughout your whole server.
 
 
