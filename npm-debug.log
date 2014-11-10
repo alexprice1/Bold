@@ -22,19 +22,19 @@
 10 silly lockFile 3a52ce78- .
 11 silly lockFile 3a52ce78- .
 12 error addLocal Could not install .
-13 error Error: EACCES, mkdir '/Users/alexander/.npm/novation-mobile/0.3.2'
-13 error  { [Error: EACCES, mkdir '/Users/alexander/.npm/novation-mobile/0.3.2']
+13 error Error: EACCES, mkdir '/Users/alexander/.npm/novation-mobile/0.3.4'
+13 error  { [Error: EACCES, mkdir '/Users/alexander/.npm/novation-mobile/0.3.4']
 13 error   errno: 3,
 13 error   code: 'EACCES',
-13 error   path: '/Users/alexander/.npm/novation-mobile/0.3.2' }
+13 error   path: '/Users/alexander/.npm/novation-mobile/0.3.4' }
 14 error Please try running this command again as root/Administrator.
 15 error System Darwin 14.0.0
 16 error command "node" "/usr/local/bin/npm" "publish"
 17 error cwd /Users/alexander/github/modules/novation-mobile
 18 error node -v v0.10.32
 19 error npm -v 1.4.28
-20 error path /Users/alexander/.npm/novation-mobile/0.3.2
+20 error path /Users/alexander/.npm/novation-mobile/0.3.4
 21 error code EACCES
 22 error errno 3
-23 error stack Error: EACCES, mkdir '/Users/alexander/.npm/novation-mobile/0.3.2'
+23 error stack Error: EACCES, mkdir '/Users/alexander/.npm/novation-mobile/0.3.4'
 24 verbose exit [ 3, true ]
