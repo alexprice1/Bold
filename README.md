@@ -12,7 +12,7 @@ Get the source from [GitHub](https://github.com/chapinkapa/novation-mobile) or i
 
 ## Version
 
-0.3.0
+0.3.6
 
 ## How to use
 
@@ -39,12 +39,10 @@ In a web.js file at your project root, use the following to set up a novation-mo
         password: ''
       },
       api: {
-        location: 'api',
-        safeMode: false,
+        location: 'api'
       },
       onlineUsersConfig: {
-        roomsToListenTo: ['onlineUsers'],
-        expireUser: 20
+        timer:900
       }
     };
 
@@ -70,11 +68,10 @@ Each option should be customized for your app.
 1. **logger.username**: username to access the redis-logger
 1. **logger.password**: password to access the redis-logger
 1. **[api.location](#standard-apis)**: Location of your api folder.
-1. **[api.safeMode](#standard-apis)**: Safemode prevents exporting variables other than functions using API.
 1. **[api.version](#standard-apis)**: The version number the server should use for internal calls.
+1. **[api.addSocketsToRoom](#standard-apis)**: A function that is called every API call that allows you to add a socket/user to a room for socket.io. The function has two arguments: (session, socket);
 1. **onlineUsersConfig:** An object with configuration options to use socket.io-online-users.
-1. **onlineUsersConfig.roomsToListenTo**: Socket.io rooms to listen to.
-1. **onlineUsersConfig.expireUser**: When a user loses connection, how long to keep the user in memory until deleting them.
+1. **onlineUsersConfig.timer**: The buffer time until the server updates the server with who is online.
 1. **ssl**: An object of options to use ssl on your node server.
 1. **ssl.key:** Location of key file to use.
 1. **ssl.cert:** Location of the cert file to use.
@@ -82,7 +79,6 @@ Each option should be customized for your app.
 1. **sslRedirect:** Redirect http to https.
 1. **dontUseRedisTTL:** do not use a ttl for redis.
 1. **ttl:** Time in seconds until redis expires documents. Defaults to 3600.
-1. **addSocketsToRoom:** A function that is called every API call that allows you to add a socket/user to a room for socket.io. The function has two arguments: (session, socket);
 
 ## Components
 
@@ -154,7 +150,7 @@ The contents of ``api/SomeAPI.js`` then look like:
 1. mongoose, access to the mongoose variable.
 2. io
 3. socket, the particular socket connection, if available
-4. connectionType, either socket, http, or internal.
+4. connectionType, either socket or http.
 5. fileName, the file that the API is being hit by. 
 6. req, if available
 7. res, if available
@@ -180,6 +176,14 @@ The contents of ``api/SomeAPI.js`` then look like:
     };
 
     exports.staticVariacle=1;
+
+## next
+
+Next allows you to run the next functon in the iteration. If you want to skip all middleware except the last function, run next({
+  finish: true
+}).
+
+Also, if you use the middleware and do not provide a connectionType in extras, API2 will add 'internal' to the connectionType.
 
 ### Mongoose Schema
 
