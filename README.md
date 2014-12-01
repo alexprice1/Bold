@@ -146,16 +146,17 @@ The contents of ``api/SomeAPI.js`` then look like:
       }
     };
 
-**Note:** extras has the following data:
-1. mongoose, access to the mongoose variable.
-2. io
-3. socket, the particular socket connection, if available
-4. connectionType, either socket or http.
-5. fileName, the file that the API is being hit by. 
-6. req, if available
-7. res, if available
-8. method, the method that is being called.
-9. IP Address
+Extras has the following properties:
+- ``mongoose`` - access to the mongoose variable.
+- ``io``
+- ``socket`` - the particular socket connection, if available
+- ``connectionType`` - either socket or http.
+- ``fileName`` - the file that the API is being hit by. 
+- ``req`` - if available
+- ``res`` - if available
+- ``method`` - the method that is being called.
+- ``ipAddress``
+- ``hostname``
 
 ###### API Middleware Example
 
