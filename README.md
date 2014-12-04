@@ -189,6 +189,7 @@ Also, if you use the middleware and do not provide a connectionType in extras, A
 ## API Promises
 
 With 0.5.0 we are introducing promises for our APIs. To turn any of our APIs as a promise, run API.Q.
+Although it should be compatible with several promise libraries, I recommend using the module, [q](https://www.npmjs.org/package/q).
 
     var User = API.Q('User');
     
