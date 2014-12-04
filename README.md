@@ -12,7 +12,7 @@ Get the source from [GitHub](https://github.com/chapinkapa/novation-mobile) or i
 
 ## Version
 
-0.3.6
+0.5.0
 
 ## How to use
 
@@ -184,6 +184,18 @@ Next allows you to run the next functon in the iteration. If you want to skip al
 }).
 
 Also, if you use the middleware and do not provide a connectionType in extras, API2 will add 'internal' to the connectionType.
+
+## API Promises
+
+With 0.5.0 we are introducing promises for our APIs. To turn any of our APIs as a promise, run API.Q.
+
+    var User = API.Q('User');
+    
+    User.getData({},'session','extras').then(function(){
+      console.log('success',arguments);
+    },function(){
+      console.log('fail',arguments);
+    });
 
 ### Mongoose Schema
 
