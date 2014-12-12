@@ -63,19 +63,15 @@ describe('server test', function() {
   });
 
   it('Tests for sync uncaught exceptions.', function() {
-    console.log("API: ",API('test').syncUncaughtException);
     API('test').syncUncaughtException({}, function(err, response) {
       done();
     })
   });
 
-  /*it('Tests for async uncaught exceptions.', function(done) {
-    this.timeout(1000);
-
+  it('Tests for async uncaught exceptions.', function(done) {
     API('test').asyncUncaughtException({}, function(err, response) {
       done();
     })
-
-  });*/
+  });
 
 });
