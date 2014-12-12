@@ -46,14 +46,14 @@ describe('server test', function() {
   });
 
   it('Tests an api call', function() {
-    /*var testAPI = API('test');
+    var testAPI = API('test');
     testAPI.run('I am Groot.', function(err, data) {
       if (err) {
         return console.log(error('Err on API test call::', err));
       }
       console.log('Got back this number::', data + '\n');
       expect(data).to.be.a('number');
-    });*/
+    });
   });
 
   it('Tests for Mongoose connection and Schema existence.', function() {
@@ -63,10 +63,7 @@ describe('server test', function() {
   });
 
   it('Tests for sync uncaught exceptions.', function() {
-
     console.log("API: ",API('test').syncUncaughtException);
-
-
     API('test').syncUncaughtException({}, function(err, response) {
       done();
     })
