@@ -33,7 +33,7 @@ describe('server test', function() {
       }
     };
 
-    var nm =nm.extra(__dirname);
+    var nm = nm.extra(__dirname);
     nm.server(config, function() {
       done();
     });
@@ -46,14 +46,14 @@ describe('server test', function() {
   });
 
   it('Tests an api call', function() {
-    var testAPI = API('test');
+    /*var testAPI = API('test');
     testAPI.run('I am Groot.', function(err, data) {
       if (err) {
         return console.log(error('Err on API test call::', err));
       }
       console.log('Got back this number::', data + '\n');
       expect(data).to.be.a('number');
-    });
+    });*/
   });
 
   it('Tests for Mongoose connection and Schema existence.', function() {
@@ -61,5 +61,24 @@ describe('server test', function() {
     console.log('User exists?', schemaWorking);
     expect(schemaWorking).equals(true);
   });
+
+  it('Tests for sync uncaught exceptions.', function() {
+
+    console.log("API: ",API('test').syncUncaughtException);
+
+
+    API('test').syncUncaughtException({}, function(err, response) {
+      done();
+    })
+  });
+
+  /*it('Tests for async uncaught exceptions.', function(done) {
+    this.timeout(1000);
+
+    API('test').asyncUncaughtException({}, function(err, response) {
+      done();
+    })
+
+  });*/
 
 });

@@ -3,14 +3,29 @@ var warn = clc.yellow;
 
 exports.run = function(data, fn, session, extras) {
 
-  console.log(warn('\nThis is the data you sent::'));
-  console.log('\t' + data + '\n');
+    console.log(warn('\nThis is the data you sent::'));
+    console.log('\t' + data + '\n');
 
-  if (!data) {
-    return fn('You did not send any data.');
-  }
+    if (!data) {
+        return fn('You did not send any data.');
+    }
 
-  var number = Math.random();
-  console.log('We are sending back this number::', number);
-  return fn(null, number);
+    var number = Math.random();
+    console.log('We are sending back this number::', number);
+    return fn(null, number);
 };
+
+exports.syncUncaughtException = API2(function(data, fn, session, extras) {
+    console.log('syncUncaughtException');
+    throw new Error("Sync Exception Called");
+    return;
+});
+
+exports.asyncUncaughtException = API2(function(data, fn, session, extras) {
+    console.log('asyncUncaughtException');
+    setTimeout(function() {
+      console.log('ASYNC = timeout');
+        throw new Error("Async Exception Called");
+        return fn(null,'Error called');
+    }, 100);
+});

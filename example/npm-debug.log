@@ -1,0 +1,306 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose readDependencies using package.json deps
+5 verbose install where, deps [ '/Users/brandoncopley/github/novation-mobile',
+5 verbose install   [ 'basic-auth-connect',
+5 verbose install     'body-parser',
+5 verbose install     'cli-color',
+5 verbose install     'connect',
+5 verbose install     'connect-redis',
+5 verbose install     'cookie',
+5 verbose install     'cookie-parser',
+5 verbose install     'cookie-signature',
+5 verbose install     'errorhandler',
+5 verbose install     'express',
+5 verbose install     'express-session',
+5 verbose install     'indexof',
+5 verbose install     'method-override',
+5 verbose install     'mongoose',
+5 verbose install     'q',
+5 verbose install     'redis',
+5 verbose install     'redis-logger',
+5 verbose install     'serve-favicon',
+5 verbose install     'socket.io',
+5 verbose install     'socket.io-online-users',
+5 verbose install     'socket.io-redis',
+5 verbose install     'chai',
+5 verbose install     'grunt',
+5 verbose install     'grunt-simple-mocha',
+5 verbose install     'mocha' ] ]
+6 info preinstall novation-mobile@0.5.0
+7 warn package.json indexof@0.0.1 No repository field.
+8 verbose readDependencies using package.json deps
+9 verbose already installed skipping cookie-parser@1.1.x /Users/brandoncopley/github/novation-mobile
+10 verbose already installed skipping cookie-signature@1.0.x /Users/brandoncopley/github/novation-mobile
+11 verbose already installed skipping errorhandler@1.0.x /Users/brandoncopley/github/novation-mobile
+12 verbose already installed skipping express@4.3.x /Users/brandoncopley/github/novation-mobile
+13 verbose already installed skipping express-session@1.2.x /Users/brandoncopley/github/novation-mobile
+14 verbose already installed skipping indexof@0.0.x /Users/brandoncopley/github/novation-mobile
+15 verbose already installed skipping method-override@1.0.x /Users/brandoncopley/github/novation-mobile
+16 verbose already installed skipping mongoose@3.8.x /Users/brandoncopley/github/novation-mobile
+17 verbose cache add [ 'q@1.1.2', null ]
+18 verbose cache add name=undefined spec="q@1.1.2" args=["q@1.1.2",null]
+19 verbose parsed url { protocol: null,
+19 verbose parsed url   slashes: null,
+19 verbose parsed url   auth: null,
+19 verbose parsed url   host: null,
+19 verbose parsed url   port: null,
+19 verbose parsed url   hostname: null,
+19 verbose parsed url   hash: null,
+19 verbose parsed url   search: null,
+19 verbose parsed url   query: null,
+19 verbose parsed url   pathname: 'q@1.1.2',
+19 verbose parsed url   path: 'q@1.1.2',
+19 verbose parsed url   href: 'q@1.1.2' }
+20 verbose already installed skipping redis@0.10.x /Users/brandoncopley/github/novation-mobile
+21 verbose cache add name="q" spec="1.1.2" args=["q","1.1.2"]
+22 verbose parsed url { protocol: null,
+22 verbose parsed url   slashes: null,
+22 verbose parsed url   auth: null,
+22 verbose parsed url   host: null,
+22 verbose parsed url   port: null,
+22 verbose parsed url   hostname: null,
+22 verbose parsed url   hash: null,
+22 verbose parsed url   search: null,
+22 verbose parsed url   query: null,
+22 verbose parsed url   pathname: '1.1.2',
+22 verbose parsed url   path: '1.1.2',
+22 verbose parsed url   href: '1.1.2' }
+23 verbose addNamed [ 'q', '1.1.2' ]
+24 verbose addNamed [ '1.1.2', '1.1.2' ]
+25 verbose already installed skipping redis-logger@* /Users/brandoncopley/github/novation-mobile
+26 silly lockFile e953b1ec-q-1-1-2 q@1.1.2
+27 verbose lock q@1.1.2 /Users/brandoncopley/.npm/e953b1ec-q-1-1-2.lock
+28 verbose already installed skipping serve-favicon@2.0.x /Users/brandoncopley/github/novation-mobile
+29 verbose already installed skipping socket.io@1.2.x /Users/brandoncopley/github/novation-mobile
+30 verbose already installed skipping socket.io-online-users@* /Users/brandoncopley/github/novation-mobile
+31 verbose already installed skipping socket.io-redis@0.1.x /Users/brandoncopley/github/novation-mobile
+32 verbose request where is /q
+33 verbose request registry https://registry.npmjs.org/
+34 verbose request id 3e03eb4bc4706c88
+35 verbose url raw /q
+36 verbose url resolving [ 'https://registry.npmjs.org/', './q' ]
+37 verbose url resolved https://registry.npmjs.org/q
+38 verbose request where is https://registry.npmjs.org/q
+39 info trying registry request attempt 1 at 21:30:40
+40 verbose etag "1UB32SPDNM777480T8M2W04AK"
+41 http GET https://registry.npmjs.org/q
+42 verbose already installed skipping chai@^1.9.1 /Users/brandoncopley/github/novation-mobile
+43 verbose already installed skipping grunt@^0.4.5 /Users/brandoncopley/github/novation-mobile
+44 verbose already installed skipping grunt-simple-mocha@^0.4.0 /Users/brandoncopley/github/novation-mobile
+45 verbose cache add [ 'mocha@^1.21.4', null ]
+46 verbose cache add name=undefined spec="mocha@^1.21.4" args=["mocha@^1.21.4",null]
+47 verbose parsed url { protocol: null,
+47 verbose parsed url   slashes: null,
+47 verbose parsed url   auth: null,
+47 verbose parsed url   host: null,
+47 verbose parsed url   port: null,
+47 verbose parsed url   hostname: null,
+47 verbose parsed url   hash: null,
+47 verbose parsed url   search: null,
+47 verbose parsed url   query: null,
+47 verbose parsed url   pathname: 'mocha@^1.21.4',
+47 verbose parsed url   path: 'mocha@^1.21.4',
+47 verbose parsed url   href: 'mocha@^1.21.4' }
+48 verbose already installed skipping basic-auth-connect@1.0.x /Users/brandoncopley/github/novation-mobile
+49 verbose already installed skipping body-parser@1.2.x /Users/brandoncopley/github/novation-mobile
+50 verbose already installed skipping cli-color@0.3.x /Users/brandoncopley/github/novation-mobile
+51 verbose already installed skipping connect@^3.0.0-rc.2 /Users/brandoncopley/github/novation-mobile
+52 verbose already installed skipping connect-redis@2.1.x /Users/brandoncopley/github/novation-mobile
+53 verbose already installed skipping cookie@0.1.x /Users/brandoncopley/github/novation-mobile
+54 verbose cache add name="mocha" spec="^1.21.4" args=["mocha","^1.21.4"]
+55 verbose parsed url { protocol: null,
+55 verbose parsed url   slashes: null,
+55 verbose parsed url   auth: null,
+55 verbose parsed url   host: null,
+55 verbose parsed url   port: null,
+55 verbose parsed url   hostname: null,
+55 verbose parsed url   hash: null,
+55 verbose parsed url   search: null,
+55 verbose parsed url   query: null,
+55 verbose parsed url   pathname: '^1.21.4',
+55 verbose parsed url   path: '^1.21.4',
+55 verbose parsed url   href: '^1.21.4' }
+56 verbose addNamed [ 'mocha', '^1.21.4' ]
+57 verbose addNamed [ null, '>=1.21.4-0 <2.0.0-0' ]
+58 silly lockFile baa35922-mocha-1-21-4 mocha@^1.21.4
+59 verbose lock mocha@^1.21.4 /Users/brandoncopley/.npm/baa35922-mocha-1-21-4.lock
+60 silly addNameRange { name: 'mocha', range: '>=1.21.4-0 <2.0.0-0', hasData: false }
+61 verbose request where is /mocha
+62 verbose request registry https://registry.npmjs.org/
+63 verbose url raw /mocha
+64 verbose url resolving [ 'https://registry.npmjs.org/', './mocha' ]
+65 verbose url resolved https://registry.npmjs.org/mocha
+66 verbose request where is https://registry.npmjs.org/mocha
+67 info trying registry request attempt 1 at 21:30:40
+68 verbose etag "D1O6BNBVTTK42JZXNNOLWZ4QV"
+69 http GET https://registry.npmjs.org/mocha
+70 http 304 https://registry.npmjs.org/q
+71 silly registry.get cb [ 304,
+71 silly registry.get   { date: 'Fri, 12 Dec 2014 03:30:40 GMT',
+71 silly registry.get     server: 'Apache',
+71 silly registry.get     via: '1.1 varnish',
+71 silly registry.get     'last-modified': 'Fri, 12 Dec 2014 03:30:40 GMT',
+71 silly registry.get     'cache-control': 'max-age=60',
+71 silly registry.get     etag: '"1UB32SPDNM777480T8M2W04AK"',
+71 silly registry.get     age: '53',
+71 silly registry.get     'x-served-by': 'cache-dfw1829-DFW',
+71 silly registry.get     'x-cache': 'HIT',
+71 silly registry.get     'x-cache-hits': '1',
+71 silly registry.get     'x-timer': 'S1418355040.207759,VS0,VE0',
+71 silly registry.get     vary: 'Accept',
+71 silly registry.get     'content-length': '0',
+71 silly registry.get     'keep-alive': 'timeout=10, max=50',
+71 silly registry.get     connection: 'Keep-Alive' } ]
+72 verbose etag https://registry.npmjs.org/q from cache
+73 silly lockFile e953b1ec-q-1-1-2 q@1.1.2
+74 silly lockFile e953b1ec-q-1-1-2 q@1.1.2
+75 http 304 https://registry.npmjs.org/mocha
+76 silly registry.get cb [ 304,
+76 silly registry.get   { date: 'Fri, 12 Dec 2014 03:30:40 GMT',
+76 silly registry.get     server: 'Apache',
+76 silly registry.get     via: '1.1 varnish',
+76 silly registry.get     'last-modified': 'Fri, 12 Dec 2014 03:30:40 GMT',
+76 silly registry.get     'cache-control': 'max-age=60',
+76 silly registry.get     etag: '"D1O6BNBVTTK42JZXNNOLWZ4QV"',
+76 silly registry.get     age: '0',
+76 silly registry.get     'x-served-by': 'cache-dfw1824-DFW',
+76 silly registry.get     'x-cache': 'HIT',
+76 silly registry.get     'x-cache-hits': '1',
+76 silly registry.get     'x-timer': 'S1418355040.214889,VS0,VE253',
+76 silly registry.get     vary: 'Accept',
+76 silly registry.get     'content-length': '0',
+76 silly registry.get     'keep-alive': 'timeout=10, max=50',
+76 silly registry.get     connection: 'Keep-Alive' } ]
+77 verbose etag https://registry.npmjs.org/mocha from cache
+78 silly addNameRange number 2 { name: 'mocha', range: '>=1.21.4-0 <2.0.0-0', hasData: true }
+79 silly addNameRange versions [ 'mocha',
+79 silly addNameRange   [ '0.0.1-alpha1',
+79 silly addNameRange     '0.0.1-alpha2',
+79 silly addNameRange     '0.0.1-alpha3',
+79 silly addNameRange     '0.0.1-alpha4',
+79 silly addNameRange     '0.0.1-alpha5',
+79 silly addNameRange     '0.0.1-alpha6',
+79 silly addNameRange     '0.0.1',
+79 silly addNameRange     '0.0.2',
+79 silly addNameRange     '0.0.3',
+79 silly addNameRange     '0.0.4',
+79 silly addNameRange     '0.0.5',
+79 silly addNameRange     '0.0.6',
+79 silly addNameRange     '0.0.7',
+79 silly addNameRange     '0.0.8',
+79 silly addNameRange     '0.1.0',
+79 silly addNameRange     '0.2.0',
+79 silly addNameRange     '0.3.0',
+79 silly addNameRange     '0.3.1',
+79 silly addNameRange     '0.3.2',
+79 silly addNameRange     '0.3.3',
+79 silly addNameRange     '0.3.4',
+79 silly addNameRange     '0.3.6',
+79 silly addNameRange     '0.4.0',
+79 silly addNameRange     '0.5.0',
+79 silly addNameRange     '0.6.0',
+79 silly addNameRange     '0.7.0',
+79 silly addNameRange     '0.7.1',
+79 silly addNameRange     '0.8.0',
+79 silly addNameRange     '0.8.1',
+79 silly addNameRange     '0.9.0',
+79 silly addNameRange     '0.10.0',
+79 silly addNameRange     '0.10.1',
+79 silly addNameRange     '0.10.2',
+79 silly addNameRange     '0.11.0',
+79 silly addNameRange     '0.12.0',
+79 silly addNameRange     '0.12.1',
+79 silly addNameRange     '0.13.0',
+79 silly addNameRange     '0.14.0',
+79 silly addNameRange     '0.14.1',
+79 silly addNameRange     '1.0.0',
+79 silly addNameRange     '1.0.1',
+79 silly addNameRange     '1.0.2',
+79 silly addNameRange     '1.0.3',
+79 silly addNameRange     '1.1.0',
+79 silly addNameRange     '1.2.0',
+79 silly addNameRange     '1.2.1',
+79 silly addNameRange     '1.2.2',
+79 silly addNameRange     '1.3.0',
+79 silly addNameRange     '1.3.1',
+79 silly addNameRange     '1.3.2',
+79 silly addNameRange     '1.4.0',
+79 silly addNameRange     '1.4.1',
+79 silly addNameRange     '1.4.2',
+79 silly addNameRange     '1.4.3',
+79 silly addNameRange     '1.5.0',
+79 silly addNameRange     '1.6.0',
+79 silly addNameRange     '1.7.0',
+79 silly addNameRange     '1.7.1',
+79 silly addNameRange     '1.7.2',
+79 silly addNameRange     '1.7.3',
+79 silly addNameRange     '1.7.4',
+79 silly addNameRange     '1.8.0',
+79 silly addNameRange     '1.8.1',
+79 silly addNameRange     '1.8.2',
+79 silly addNameRange     '1.9.0',
+79 silly addNameRange     '1.10.0',
+79 silly addNameRange     '1.11.0',
+79 silly addNameRange     '1.12.0',
+79 silly addNameRange     '1.12.1',
+79 silly addNameRange     '1.13.0',
+79 silly addNameRange     '1.14.0',
+79 silly addNameRange     '1.15.0',
+79 silly addNameRange     '1.15.1',
+79 silly addNameRange     '1.16.0',
+79 silly addNameRange     '1.16.1',
+79 silly addNameRange     '1.16.2',
+79 silly addNameRange     '1.17.0',
+79 silly addNameRange     '1.17.1',
+79 silly addNameRange     '1.18.0',
+79 silly addNameRange     '1.18.1',
+79 silly addNameRange     '1.18.2',
+79 silly addNameRange     '1.19.0',
+79 silly addNameRange     '1.20.0',
+79 silly addNameRange     '1.20.1',
+79 silly addNameRange     '1.21.0',
+79 silly addNameRange     '1.21.1',
+79 silly addNameRange     '1.21.2',
+79 silly addNameRange     '1.21.3',
+79 silly addNameRange     '1.21.4',
+79 silly addNameRange     '1.21.5',
+79 silly addNameRange     '2.0.0',
+79 silly addNameRange     '2.0.1' ] ]
+80 verbose addNamed [ 'mocha', '1.21.5' ]
+81 verbose addNamed [ '1.21.5', '1.21.5' ]
+82 silly lockFile 2b4a0aa3-mocha-1-21-5 mocha@1.21.5
+83 verbose lock mocha@1.21.5 /Users/brandoncopley/.npm/2b4a0aa3-mocha-1-21-5.lock
+84 silly lockFile 9587a664-npmjs-org-mocha-mocha-1-21-5-tgz https://registry.npmjs.org/mocha/-/mocha-1.21.5.tgz
+85 verbose lock https://registry.npmjs.org/mocha/-/mocha-1.21.5.tgz /Users/brandoncopley/.npm/9587a664-npmjs-org-mocha-mocha-1-21-5-tgz.lock
+86 verbose addRemoteTarball [ 'https://registry.npmjs.org/mocha/-/mocha-1.21.5.tgz',
+86 verbose addRemoteTarball   '7c58b09174df976e434a23b1e8d639873fc529e9' ]
+87 info retry fetch attempt 1 at 21:30:40
+88 verbose fetch to= /var/folders/cf/vvn8x3bd7kjbdzv1qrty3ccc0000gn/T/npm-90374-vWChYGf4/registry.npmjs.org/mocha/-/mocha-1.21.5.tgz
+89 http GET https://registry.npmjs.org/mocha/-/mocha-1.21.5.tgz
+90 http 200 https://registry.npmjs.org/mocha/-/mocha-1.21.5.tgz
+91 silly lockFile 9587a664-npmjs-org-mocha-mocha-1-21-5-tgz https://registry.npmjs.org/mocha/-/mocha-1.21.5.tgz
+92 silly lockFile 9587a664-npmjs-org-mocha-mocha-1-21-5-tgz https://registry.npmjs.org/mocha/-/mocha-1.21.5.tgz
+93 silly lockFile 2b4a0aa3-mocha-1-21-5 mocha@1.21.5
+94 silly lockFile 2b4a0aa3-mocha-1-21-5 mocha@1.21.5
+95 silly lockFile baa35922-mocha-1-21-4 mocha@^1.21.4
+96 silly lockFile baa35922-mocha-1-21-4 mocha@^1.21.4
+97 error Error: EACCES, mkdir '/Users/brandoncopley/.npm/mocha/1.21.5'
+97 error  { [Error: EACCES, mkdir '/Users/brandoncopley/.npm/mocha/1.21.5']
+97 error   errno: 3,
+97 error   code: 'EACCES',
+97 error   path: '/Users/brandoncopley/.npm/mocha/1.21.5',
+97 error   parent: 'novation-mobile' }
+98 error Please try running this command again as root/Administrator.
+99 error System Darwin 14.0.0
+100 error command "node" "/usr/local/bin/npm" "install"
+101 error cwd /Users/brandoncopley/github/novation-mobile/example
+102 error node -v v0.10.33
+103 error npm -v 1.4.28
+104 error path /Users/brandoncopley/.npm/mocha/1.21.5
+105 error code EACCES
+106 error errno 3
+107 error stack Error: EACCES, mkdir '/Users/brandoncopley/.npm/mocha/1.21.5'
+108 verbose exit [ 3, true ]
