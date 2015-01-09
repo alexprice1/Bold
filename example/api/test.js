@@ -7,7 +7,7 @@ var afterware = API('afterware');
 exports.run = API2(middleware.fakeCredentials, function(data, fn, session, extras) {
 
   console.log(warn('\nThis is the data you sent::'));
-  console.log('\t' + data + '\n');
+  console.log(data + '\n');
 
   if (!data) {
     return fn('You did not send any data.');
@@ -18,3 +18,5 @@ exports.run = API2(middleware.fakeCredentials, function(data, fn, session, extra
   return fn(null, number);
 
 });
+
+exports.run.after(afterware.eventLog);
