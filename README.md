@@ -178,13 +178,44 @@ Extras has the following properties:
 
     exports.staticVariacle=1;
 
-## next
+## next()
 
 Next allows you to run the next functon in the iteration. If you want to skip all middleware except the last function, run next({
   finish: true
 }).
 
 Also, if you use the middleware and do not provide a connectionType in extras, API2 will add 'internal' to the connectionType.
+
+## after()
+
+If you want to run an API after another API is complete, you may add an after() call to the middleware.
+
+    var middleware = API('middleware');
+    var afterware = API('afterware');
+
+    exports.run = API2(middleware.checkCredentials, function(data, fn, session, extras) {
+    
+      if (!data) {
+        return fn('You did not send any data.');
+      }
+    
+      var number = Math.random();
+      console.log('We are sending back this number::', number);
+      return fn(null, number);
+    
+    });
+    
+    exports.run.after(afterware.testLog);
+
+In the above example, the ``run()`` API will use middleware to check access credentials. If the credentials middleware finishes successfully, our API does its work. As soon as ``fn(null, number)`` is called, the afterware API called ``eventLog`` is triggered. What happens inside the afterware API has no impact on what the ``run()`` API does. An afterware API gets the parameters ``err, res, data, session, extras``, and might look something like:
+
+    exports.testLog = function(err, res, data, session, extras) {
+      if (err) {
+        return console.log('The API experienced an error. Log the error to the DB.')
+      } else {
+        return console.log('We can log the number ' + res + ' to the DB.');
+      }
+    };
 
 ## API Promises
 

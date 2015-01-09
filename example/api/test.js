@@ -19,4 +19,4 @@ exports.run = API2(middleware.fakeCredentials, function(data, fn, session, extra
 
 });
 
-exports.run.after(afterware.eventLog);
+exports.run.after(afterware.testLog);
