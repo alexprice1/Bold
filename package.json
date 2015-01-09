@@ -39,7 +39,7 @@
     "indexof": "0.0.x",
     "method-override": "1.0.x",
     "mongoose": "3.8.x",
-    "q": "1.1.2",
+    "q": "^1.1.2",
     "redis": "0.10.x",
     "redis-logger": "*",
     "serve-favicon": "2.0.x",

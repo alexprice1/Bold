@@ -23,8 +23,7 @@ describe('server test', function() {
       turnOffAwesomeLogs: true,
       api: {
         location: 'api/',
-        safeMode: false,
-        // version: 1
+        safeMode: false
       },
       onlineUsersConfig: {
         servers: ['Main:' + os.hostname()],
@@ -33,7 +32,7 @@ describe('server test', function() {
       }
     };
 
-    var nm =nm.extra(__dirname);
+    var nm = nm.extra(__dirname);
     nm.server(config, function() {
       done();
     });
@@ -47,7 +46,10 @@ describe('server test', function() {
 
   it('Tests an api call', function() {
     var testAPI = API('test');
-    testAPI.run('I am Groot.', function(err, data) {
+    testAPI.run({
+      message: 'I am Groot.',
+      credentials: true
+    }, function(err, data) {
       if (err) {
         return console.log(error('Err on API test call::', err));
       }
