@@ -1,12 +1,12 @@
 [![NPM version][npm-version-image]][npm-url] [![NPM downloads][npm-downloads-image]][npm-url] [![MIT License][license-image]][license-url] [![Build Status][travis-image]][travis-url]
 
-# Novation-Mobile
+# Kralo
 
-Novation-Mobile is a framework using a NodeJS/MongoDB + Mongoose/Socket.IO/Redis stack. It was built by [Novation Mobile](http://www.novationmobile.com) to create scaleable Node.js servers with an emphasis on quick, standardized development.
+Kralo is a framework using a NodeJS/MongoDB + Mongoose/Socket.IO/Redis stack.
 
-Get the source from [GitHub](https://github.com/chapinkapa/novation-mobile) or install via NPM
+Get the source from [GitHub](https://github.com/chapinkapa/kralo) or install via NPM
 
-    npm install novation-mobile --save
+    npm install kralo --save
 
 **Note:** this will take a while. We include all the dependencies to run this.
 
@@ -16,9 +16,9 @@ Get the source from [GitHub](https://github.com/chapinkapa/novation-mobile) or i
 
 ## How to use
 
-In a web.js file at your project root, use the following to set up a novation-mobile server:
+In a web.js file at your project root, use the following to set up a kralo server:
 
-    var nm = require('novation-mobile');
+    var nm = require('kralo');
 
     var config = {
       appName: 'ExampleApp',
@@ -249,11 +249,11 @@ Allows you to create a mongoose schema that can be used throughout your app. Con
 
 
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
-[license-url]: https://github.com/chapinkapa/novation-mobile/blob/master/LICENSE
+[license-url]: https://github.com/chapinkapa/kralo/blob/master/LICENSE
 
-[npm-version-image]: http://img.shields.io/npm/v/novation-mobile.svg?style=flat-square
-[npm-downloads-image]: http://img.shields.io/npm/dm/novation-mobile.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/novation-mobile
+[npm-version-image]: http://img.shields.io/npm/v/kralo.svg?style=flat-square
+[npm-downloads-image]: http://img.shields.io/npm/dm/kralo.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/kralo
 
-[travis-image]: http://img.shields.io/travis/chapinkapa/novation-mobile.svg?style=flat-square
-[travis-url]: http://travis-ci.org/chapinkapa/novation-mobile
+[travis-image]: http://img.shields.io/travis/chapinkapa/kralo.svg?style=flat-square
+[travis-url]: http://travis-ci.org/chapinkapa/kralo
