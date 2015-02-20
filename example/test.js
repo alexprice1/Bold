@@ -6,33 +6,21 @@ var os = require('os');
 
 var error = clc.red;
 
+process.chdir(__dirname);
+var nm = require('../lib/server.js');
+
+nm.run(function() {
+  done();
+});
+
+return;
+
 describe('server test', function() {
   // server setup
   before(function(done) {
+    process.chdir(__dirname);
     var nm = require('../lib/server.js');
-    var config = {
-      appName: 'ExampleApp',
-      server: 'Main',
-      favicon: 'favicon.ico',
-      envLocation: '_env.js',
-      preContent: 'routes.js',
-      mongooseSchemaLocation: '_schema.js',
-      port: 4050,
-      useStaticServer: true,
-      useStaticServer: true,
-      turnOffAwesomeLogs: true,
-      api: {
-        location: 'api/',
-        safeMode: false
-      },
-      onlineUsersConfig: {
-        servers: ['Main:' + os.hostname()],
-        roomsToListenTo: ['onlineUsers'],
-        expireUser: 20
-      }
-    };
 
-    var nm = nm.extra(__dirname);
     nm.server(config, function() {
       done();
     });
