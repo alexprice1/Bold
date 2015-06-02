@@ -1,12 +1,12 @@
 {
   "author": {
-    "name": "Kralo"
+    "name": "Bold"
   },
-  "name": "kralo",
-  "description": "A configured server for node",
+  "name": "bold",
+  "description": "A Node Framework with sockets",
   "version": "0.5.11",
   "repository": {
-    "url": "https://github.com/chapinkapa/kralo/",
+    "url": "https://github.com/chapinkapa/bold/",
     "type": "git"
   },
   "keywords": [
@@ -15,14 +15,11 @@
   "license": "MIT",
   "licenses": {
     "type": "MIT",
-    "url": "https://github.com/chapinkapa/kralo/blob/master/LICENSE"
+    "url": "https://github.com/chapinkapa/bold/blob/master/LICENSE"
   },
-  "main": "./lib/server",
-  "scripts": {
-    "test": "grunt test"
-  },
+  "main": "./lib/bold",
   "bugs": {
-    "url": "https://github.com/chapinkapa/kralo/issues"
+    "url": "https://github.com/chapinkapa/bold/issues"
   },
   "dependencies": {
     "basic-auth-connect": "1.0.x",

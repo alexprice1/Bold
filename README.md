@@ -1,12 +1,12 @@
 [![NPM version][npm-version-image]][npm-url] [![NPM downloads][npm-downloads-image]][npm-url] [![MIT License][license-image]][license-url] [![Build Status][travis-image]][travis-url]
 
-# Kralo
+# Bold
 
-Kralo is a framework using a NodeJS/MongoDB + Mongoose/Socket.IO/Redis stack.
+Bold is a framework using a NodeJS/MongoDB + Mongoose/Socket.IO/Redis stack.
 
-Get the source from [GitHub](https://github.com/chapinkapa/kralo) or install via NPM
+Get the source from [GitHub](https://github.com/chapinkapa/bold) or install via NPM
 
-    npm install kralo --save
+    npm install bold --save
 
 **Note:** this will take a while. We include all the dependencies to run this.
 
@@ -16,9 +16,9 @@ Get the source from [GitHub](https://github.com/chapinkapa/kralo) or install via
 
 ## How to use
 
-In a web.js file at your project root, use the following to set up a kralo server:
+In a web.js file at your project root, use the following to set up a bold server:
 
-    var nm = require('kralo');
+    var nm = require('bold');
 
     var config = {
       appName: 'ExampleApp',
@@ -249,11 +249,11 @@ Allows you to create a mongoose schema that can be used throughout your app. Con
 
 
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
-[license-url]: https://github.com/chapinkapa/kralo/blob/master/LICENSE
+[license-url]: https://github.com/chapinkapa/bold/blob/master/LICENSE
 
-[npm-version-image]: http://img.shields.io/npm/v/kralo.svg?style=flat-square
-[npm-downloads-image]: http://img.shields.io/npm/dm/kralo.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/kralo
+[npm-version-image]: http://img.shields.io/npm/v/bold.svg?style=flat-square
+[npm-downloads-image]: http://img.shields.io/npm/dm/bold.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/bold
 
-[travis-image]: http://img.shields.io/travis/chapinkapa/kralo.svg?style=flat-square
-[travis-url]: http://travis-ci.org/chapinkapa/kralo
+[travis-image]: http://img.shields.io/travis/chapinkapa/bold.svg?style=flat-square
+[travis-url]: http://travis-ci.org/chapinkapa/bold
