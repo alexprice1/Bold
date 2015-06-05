@@ -8,6 +8,6 @@ module.exports = {
       return 'theFakeCookieMonster'
     }
   },
-  mongoUri: 'mongodb://localhost/novation_test_db',
+  mongoUri: 'mongodb://localhost/bold_test_db',
   redisUri: 'redis://127.0.0.1:6379'
 };

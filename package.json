@@ -4,7 +4,7 @@
   },
   "name": "bold",
   "description": "A Node Framework with sockets",
-  "version": "0.1.0",
+  "version": "0.1.12",
   "repository": {
     "url": "https://github.com/chapinkapa/bold/",
     "type": "git"
@@ -21,10 +21,14 @@
   "bugs": {
     "url": "https://github.com/chapinkapa/bold/issues"
   },
+  "bin": {
+    "bold": "bin/bold.js"
+  },
   "dependencies": {
     "basic-auth-connect": "1.0.x",
     "body-parser": "1.2.x",
     "cli-color": "0.3.x",
+    "commander": "^2.8.1",
     "connect": "^3.0.0-rc.2",
     "connect-redis": "2.1.x",
     "cookie": "0.1.x",
@@ -36,6 +40,7 @@
     "indexof": "0.0.x",
     "method-override": "1.0.x",
     "mongoose": "3.8.x",
+    "ncp": "^2.0.0",
     "q": "^1.1.2",
     "redis": "0.10.x",
     "redis-logger": "*",
