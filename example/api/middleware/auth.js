@@ -1,7 +1,6 @@
 module.exports = {
   testCredentials: function(data, fn, session, extras, next) {
-    if (data.credentials == true) {
-      console.log('You have fake credentials and the Middleware worked. Congrats.');
+    if (data.credentials == 'true') {
       return next();
     } else {
       return fn('You sent this bad fake credentials. That will not work.', null);

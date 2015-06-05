@@ -11,6 +11,6 @@ module.exports = {
     api: function(data, fn, session, extras) {
       return fn(null, sampleUser);
     },
-    afterware: ['muddleware/auth.logUser']
+    afterware: ['middleware/auth.user.logUser']
   }
 };
