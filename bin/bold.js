@@ -2,6 +2,7 @@
 
 var debug = process.env.debug;
 
+var path = require('path');
 var dir = process.cwd();
 
 var version = require('../package.json').version;
@@ -22,9 +23,9 @@ function createBoldServer(name) {
   var ncp = require('ncp').ncp;
   
   ncp.limit = 16;
-  var sourceDir = debug === 'true' ? dir : __dirname;
+  var sourceDir = path.join(__dirname, '../', '/example');
   var destinationDir = dir + '/' + name;
-  ncp(sourceDir + '/example', destinationDir, function (err) {
+  ncp(sourceDir, destinationDir, function (err) {
    if (err) {
      return console.error(err);
    }
