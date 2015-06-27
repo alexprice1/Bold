@@ -1,0 +1,121 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@2.10.0
+3 info using node@v0.10.36
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec { raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/alexander/github/modules/bold',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/alexander/.npm/bold/0.1.14/package.tgz not in flight; packing
+9 verbose tar pack [ '/Users/alexander/.npm/bold/0.1.14/package.tgz',
+9 verbose tar pack   '/Users/alexander/github/modules/bold' ]
+10 verbose tarball /Users/alexander/.npm/bold/0.1.14/package.tgz
+11 verbose folder /Users/alexander/github/modules/bold
+12 info prepublish bold@0.1.14
+13 verbose addLocalTarball adding from inside cache /Users/alexander/.npm/bold/0.1.14/package.tgz
+14 silly cache afterAdd bold@0.1.14
+15 verbose afterAdd /Users/alexander/.npm/bold/0.1.14/package/package.json not in flight; writing
+16 verbose afterAdd /Users/alexander/.npm/bold/0.1.14/package/package.json written
+17 silly publish { author: { name: 'Bold' },
+17 silly publish   name: 'bold',
+17 silly publish   description: 'A Node Framework with sockets',
+17 silly publish   version: '0.1.14',
+17 silly publish   repository: { url: 'https://github.com/chapinkapa/bold/', type: 'git' },
+17 silly publish   keywords: [ 'framework' ],
+17 silly publish   license: 'MIT',
+17 silly publish   licenses:
+17 silly publish    { type: 'MIT',
+17 silly publish      url: 'https://github.com/chapinkapa/bold/blob/master/LICENSE' },
+17 silly publish   main: './lib/bold',
+17 silly publish   bugs: { url: 'https://github.com/chapinkapa/bold/issues' },
+17 silly publish   bin: { bold: 'bin/bold.js' },
+17 silly publish   dependencies:
+17 silly publish    { 'basic-auth-connect': '1.0.x',
+17 silly publish      'body-parser': '1.2.x',
+17 silly publish      'cli-color': '0.3.x',
+17 silly publish      commander: '^2.8.1',
+17 silly publish      connect: '^3.0.0-rc.2',
+17 silly publish      'connect-redis': '2.1.x',
+17 silly publish      cookie: '0.1.x',
+17 silly publish      'cookie-parser': '1.1.x',
+17 silly publish      'cookie-signature': '1.0.x',
+17 silly publish      errorhandler: '1.0.x',
+17 silly publish      express: '4.3.x',
+17 silly publish      'express-session': '1.2.x',
+17 silly publish      indexof: '0.0.x',
+17 silly publish      'method-override': '1.0.x',
+17 silly publish      mongoose: '3.8.x',
+17 silly publish      ncp: '^2.0.0',
+17 silly publish      q: '^1.1.2',
+17 silly publish      redis: '0.10.x',
+17 silly publish      'redis-logger': '*',
+17 silly publish      'serve-favicon': '2.0.x',
+17 silly publish      'socket.io': '1.2.x',
+17 silly publish      'socket.io-online-users': '*',
+17 silly publish      'socket.io-redis': '0.1.x' },
+17 silly publish   devDependencies:
+17 silly publish    { chai: '^1.9.1',
+17 silly publish      grunt: '^0.4.5',
+17 silly publish      'grunt-simple-mocha': '^0.4.0',
+17 silly publish      mocha: '^1.21.4' },
+17 silly publish   readme: '[![NPM version][npm-version-image]][npm-url] [![NPM downloads][npm-downloads-image]][npm-url] [![MIT License][license-image]][license-url] [![Build Status][travis-image]][travis-url]\n\n# Bold\n\nBold is a framework using a NodeJS/MongoDB + Mongoose/Socket.IO/Redis stack.\n\nGet the source from [GitHub](https://github.com/chapinkapa/bold) or install via NPM\n\n    npm install bold --save\n\n**Note:** this will take a while. We include all the dependencies to run this.\n\n## Version\n\n0.5.0\n\n## How to use\n\nIn a web.js file at your project root, use the following to set up a bold server:\n\n    var nm = require(\'bold\');\n\n    var config = {\n      appName: \'ExampleApp\',\n      server: \'Main\',\n      port: process.argv[2] || 4050,\n      useStaticServer: true,\n      favicon: \'favicon.ico\',\n      envLocation: \'_env.js\',\n      preContent: \'routes.js\',\n      postContent: \'routes2.js\',\n      mongooseSchemaLocation: \'_schema.js\',\n      viewEngine: \'jade\',\n      viewDirectory: \'views\',\n      publicDirectory: \'public\',\n      servers: [\'Main:\' + os.hostname()],\n      logger: {\n        userName: \'\',\n        password: \'\'\n      },\n      api: {\n        location: \'api\'\n      },\n      onlineUsersConfig: {\n        timer:900\n      }\n    };\n\n    nm.extra(__dirname).server(config);\n\nEach option should be customized for your app. \n\n#### Config Options:\n\n1. **appName**: Name of your app.\n1. **server**: Name of the server that the current code is running on.\n1. **port:** What port to run server on. Defaults to process.env.PORT and then to 4050.\n1. **useStaticServer:** Wether to allow the server to act as a static server for a specified folder. Used with viewEngine, viewDirectory, and publicDirectory. Defaults to true.\n1. **favicon:** Location of your favicon. Defaults to \'public\'.\n1. **[envLocation](#environmental-variables)**: Location of your environmental variables.\n1. **[preContent](#routes)**: Location of your routes that run before api routes.\n1. **[postContent](#routes)**: Location of your routes that run after api routes.\n1. **[mongooseSchemaLocation](#mongoose-schema)**: Location of your mongoose schema. Defaults to \'_schema.js\'.\n1. **viewEngine:** Which view engine to use. Example: jade, html, handlebars, etc.\n1. **viewEngine:** Which directory to be used to serve views, if using dynamic views.\n1. **publicDirectory:** Which directory to be used as your \'static folder.\'\n1. **servers**: An array of servers that is used by redis-logger and socket.io-online-users.\n1. **logger.username**: username to access the redis-logger\n1. **logger.password**: password to access the redis-logger\n1. **[api.location](#standard-apis)**: Location of your api folder.\n1. **[api.version](#standard-apis)**: The version number the server should use for internal calls.\n1. **[api.addSocketsToRoom](#standard-apis)**: A function that is called every API call that allows you to add a socket/user to a room for socket.io. The function has two arguments: (session, socket);\n1. **onlineUsersConfig:** An object with configuration options to use socket.io-online-users.\n1. **onlineUsersConfig.timer**: The buffer time until the server updates the server with who is online.\n1. **ssl**: An object of options to use ssl on your node server.\n1. **ssl.key:** Location of key file to use.\n1. **ssl.cert:** Location of the cert file to use.\n1. **ssl.port:** Port to have your node.js https server run on.\n1. **sslRedirect:** Redirect http to https.\n1. **dontUseRedisTTL:** do not use a ttl for redis.\n1. **ttl:** Time in seconds until redis expires documents. Defaults to 3600.\n\n## Components\n\n### Environmental Variables\n\n##### Location: _env.js\n\nAllows you to set environment variables used throughout the app:\n\n    exports.configureEnvironment = function(app, process) {\n      // required variables\n      process.env[\'SESSION_KEY\'] = \'my_express.sid\';\n      process.env[\'SESSION_SECRET\'] = \'exampleSecret\';\n      process.env[\'COOKIE_KEY\'] = \'ExampleCookie\';\n      process.env.MONGO_URI = \'\';\n      process.env.REDIS_URI = \'redis://redis:redis@ip:port/dbindex\';\n\n      // add your own\n      process.env[\'SOME_API_KEY\'] = \'aaa111nnn123\';\n    };\n\n### Routes\n\n##### Location: routes.js\n\nAllows you to create custom routes for your app.\n\n    exports.content = function(app, io) {\n      // you can use this page for additional, custom routes\n      app.get(\'/\', function(req, res, next) {\n        res.send(\'This is an example server\');\n      });\n    };\n\n### Standard APIs\n\n##### Location: api/\n\nAllows you to create APIs that can be accessed by both socket.io and by RESTful requests.\n\nSay I want to call the function \'run\' under \'SomeAPI\'. I can request the API either using ``http://localhost:4050/api/SomeAPI/run`` or by using sockets on the client:\n\n    socket.emit(\'api\', \'SomeAPI\', \'run\', {\n      testData: \'I Am Groot\'\n    }, function(err, data) {\n      if (err) {\n        console.log(err);\n      } else {\n        console.log(data);\n      }\n    });\n\nThe contents of ``api/SomeAPI.js`` then look like:\n\n    exports.run = function() {\n      console.log(data.testData); // prints "I Am Groot"\n\n      var number = Math.random();\n      if (number < .5) {\n        return fn(\'This is a standard error message.\');\n      } else {\n        return fn(null, {\n          data: \'This the standard way to send data back to the client.\'\n        });\n      }\n    };\n\nExtras has the following properties:\n- ``mongoose`` - access to the mongoose variable.\n- ``io``\n- ``socket`` - the particular socket connection, if available\n- ``connectionType`` - either socket or http.\n- ``fileName`` - the file that the API is being hit by. \n- ``req`` - if available\n- ``res`` - if available\n- ``method`` - the method that is being called.\n- ``ipAddress``\n- ``hostname``\n\n###### API Middleware Example\n\n    function testSession(data,fn,session,extras,next){\n      if(!session){\n        return fn("You have to have a session for this.");\n      } else {\n        return next();\n      }\n    }\n\n    exports.testSession=API2(testSession,testSession,function(data,fn,session,extras){\n      fn(null, \'You have a session!\');\n    });\n\n    exports.fn=function(){\n      fn(null, \'yay!!\');\n    };\n\n    exports.staticVariacle=1;\n\n## next()\n\nNext allows you to run the next functon in the iteration. If you want to skip all middleware except the last function, run next({\n  finish: true\n}).\n\nAlso, if you use the middleware and do not provide a connectionType in extras, API2 will add \'internal\' to the connectionType.\n\n## after()\n\nIf you want to run an API after another API is complete, you may add an after() call to the middleware.\n\n    var middleware = API(\'middleware\');\n    var afterware = API(\'afterware\');\n\n    exports.run = API2(middleware.checkCredentials, function(data, fn, session, extras) {\n    \n      if (!data) {\n        return fn(\'You did not send any data.\');\n      }\n    \n      var number = Math.random();\n      console.log(\'We are sending back this number::\', number);\n      return fn(null, number);\n    \n    });\n    \n    exports.run.after(afterware.testLog);\n\nIn the above example, the ``run()`` API will use middleware to check access credentials. If the credentials middleware finishes successfully, our API does its work. As soon as ``fn(null, number)`` is called, the afterware API called ``eventLog`` is triggered. What happens inside the afterware API has no impact on what the ``run()`` API does. An afterware API gets the parameters ``err, res, data, session, extras``, and might look something like:\n\n    exports.testLog = function(err, res, data, session, extras) {\n      if (err) {\n        return console.log(\'The API experienced an error. Log the error to the DB.\')\n      } else {\n        return console.log(\'We can log the number \' + res + \' to the DB.\');\n      }\n    };\n\n## API Promises\n\nWith 0.5.0 we are introducing promises for our APIs. To turn any of our APIs as a promise, run API.Q.\nAlthough it should be compatible with several promise libraries, I recommend using the module, [q](https://www.npmjs.org/package/q).\n\n    var User = API.Q(\'User\');\n    \n    User.getData({},\'session\',\'extras\').then(function(){\n      console.log(\'success\',arguments);\n    },function(){\n      console.log(\'fail\',arguments);\n    });\n\n### Mongoose Schema\n\n##### Location: schema.js\n\nAllows you to create a mongoose schema that can be used throughout your app. Configure your file to look like this:\n\n    var mongoose = require(\'mongoose\');\n    var Schema = mongoose.Schema;\n\n    exports.User = mongoose.model(\'User\', new Schema({\n      firstName: String,\n      lastName: String,\n      fullName: String\n    }));\n\n**Note:** everything you export in here will be attached to the global scope. It will be accessible throughout your whole server.\n\n\n[license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square\n[license-url]: https://github.com/chapinkapa/bold/blob/master/LICENSE\n\n[npm-version-image]: http://img.shields.io/npm/v/bold.svg?style=flat-square\n[npm-downloads-image]: http://img.shields.io/npm/dm/bold.svg?style=flat-square\n[npm-url]: https://npmjs.org/package/bold\n\n[travis-image]: http://img.shields.io/travis/chapinkapa/bold.svg?style=flat-square\n[travis-url]: http://travis-ci.org/chapinkapa/bold',
+17 silly publish   readmeFilename: 'README.md',
+17 silly publish   gitHead: '8ca5f0318c8f8d4da11dd4153c8cbb87c686026d',
+17 silly publish   _id: 'bold@0.1.14',
+17 silly publish   scripts: {},
+17 silly publish   _shasum: '8029d7d0f82a0d6f45ebca0a27f6217833dbc40f',
+17 silly publish   _from: '.' }
+18 verbose getPublishConfig undefined
+19 silly mapToRegistry name bold
+20 silly mapToRegistry using default registry
+21 silly mapToRegistry registry https://registry.npmjs.org/
+22 silly mapToRegistry uri https://registry.npmjs.org/bold
+23 verbose publish registryBase https://registry.npmjs.org/
+24 silly publish uploading /Users/alexander/.npm/bold/0.1.14/package.tgz
+25 verbose request uri https://registry.npmjs.org/bold
+26 verbose request sending authorization for write operation
+27 info attempt registry request try #1 at 21:43:04
+28 verbose request id 43ed1d70c5a6cf90
+29 http request PUT https://registry.npmjs.org/bold
+30 http 403 https://registry.npmjs.org/bold
+31 verbose headers { 'content-type': 'application/json',
+31 verbose headers   'cache-control': 'max-age=60',
+31 verbose headers   'content-length': '96',
+31 verbose headers   'accept-ranges': 'bytes',
+31 verbose headers   date: 'Fri, 26 Jun 2015 02:43:06 GMT',
+31 verbose headers   via: '1.1 varnish',
+31 verbose headers   connection: 'keep-alive',
+31 verbose headers   'x-served-by': 'cache-ord1727-ORD',
+31 verbose headers   'x-cache': 'MISS',
+31 verbose headers   'x-cache-hits': '0',
+31 verbose headers   'x-timer': 'S1435286584.716960,VS0,VE1284' }
+32 verbose request invalidating /Users/alexander/.npm/registry.npmjs.org/bold on PUT
+33 error publish Failed PUT 403
+34 verbose stack Error: "You cannot publish over the previously published version 0.1.14." : bold
+34 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:247:14)
+34 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:170:14)
+34 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:368:22)
+34 verbose stack     at Request.emit (events.js:98:17)
+34 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1219:14)
+34 verbose stack     at Request.emit (events.js:117:20)
+34 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1167:12)
+34 verbose stack     at IncomingMessage.emit (events.js:117:20)
+34 verbose stack     at _stream_readable.js:944:16
+34 verbose stack     at process._tickCallback (node.js:442:13)
+35 verbose statusCode 403
+36 verbose pkgid bold
+37 verbose cwd /Users/alexander/github/modules/bold
+38 error Darwin 14.1.0
+39 error argv "node" "/usr/local/bin/npm" "publish"
+40 error node v0.10.36
+41 error npm  v2.10.0
+42 error code E403
+43 error "You cannot publish over the previously published version 0.1.14." : bold
+44 error If you need help, you may report this error at:
+44 error     <https://github.com/npm/npm/issues>
+45 verbose exit [ 1, true ]
