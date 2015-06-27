@@ -4,7 +4,7 @@
   },
   "name": "bold",
   "description": "A Node Framework with sockets",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "repository": {
     "url": "https://github.com/chapinkapa/bold/",
     "type": "git"
