@@ -31,14 +31,8 @@ function createBoldServer(name) {
      return console.error(err);
    }
    
-   ncp(sourceDir, destinationDir + '/node_modules', function (err) {
-     if (err) {
-       return console.error(err);
-     }
-
-     console.log('created');
-     console.log("run:");
-     console.log("'cd " + name + " && node server'");
-   });
+    console.log('created');
+    console.log("run:");
+    console.log("'cd " + name + " && sudo npm install && node server'");
   });
 }

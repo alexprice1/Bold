@@ -3,6 +3,7 @@
   "description": "A New Bold Server",
   "version": "0.1.0",
   "dependencies": {
-    "bold": "1.0.x"
+    "bold": "0.1.x",
+    "mongoose": "3.8.x"
   }
 }
