@@ -23,14 +23,22 @@ function createBoldServer(name) {
   var ncp = require('ncp').ncp;
   
   ncp.limit = 16;
-  var sourceDir = path.join(__dirname, '../', '/example');
+  var exampleDir = path.join(__dirname, '../', '/example');
+  var sourceDir = path.join(__dirname, '../');
   var destinationDir = dir + '/' + name;
-  ncp(sourceDir, destinationDir, function (err) {
+  ncp(exampleDir, destinationDir, function (err) {
    if (err) {
      return console.error(err);
    }
-   console.log('created');
-   console.log("run:");
-   console.log("'cd " + name + " && node server'");
+   
+   ncp(sourceDir, destinationDir + '/node_modules', function (err) {
+     if (err) {
+       return console.error(err);
+     }
+
+     console.log('created');
+     console.log("run:");
+     console.log("'cd " + name + " && node server'");
+   });
   });
 }
