@@ -1,6 +1,6 @@
 {
   "author": {
-    "name": "Bold"
+    "name": "Alex Price"
   },
   "name": "bold",
   "description": "A Node Framework with sockets",
@@ -35,7 +35,7 @@
     "cookie-parser": "1.1.x",
     "cookie-signature": "1.0.x",
     "errorhandler": "1.0.x",
-    "express": "4.3.x",
+    "express": "4.13.x",
     "express-session": "1.2.x",
     "indexof": "0.0.x",
     "method-override": "1.0.x",

@@ -5,9 +5,15 @@ module.exports = {
     if(environment === 'production') {
       return 'cookieMonster';
     } else {
-      return 'theFakeCookieMonster'
+      return 'theFakeCookieMonster';
     }
   },
-  mongoUri: 'mongodb://localhost/bold_test_db',
+  mongoUri: function(environment) {
+    if(environment === 'production') {
+      return 'mongodb://localhost/bold_test_db';
+    } else {
+      return 'mongodb://localhost/bold_test_db';
+    }
+  },
   redisUri: 'redis://127.0.0.1:6379'
 };
