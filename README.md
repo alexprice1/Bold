@@ -2,76 +2,64 @@
 
 # Bold
 
-Bold is a framework using a NodeJS/MongoDB + Mongoose/Socket.IO/Redis stack.
+Bold is a framework using a NodeJS + Socket.IO/Redis stack.
 
 Get the source from [GitHub](https://github.com/chapinkapa/bold) or install via NPM
 
     npm install bold --save
 
-**Note:** this will take a while. We include all the dependencies to run this.
+**Note:** this will take a while. We include all the dependencies to run bold.
 
 ## Version
 
-0.5.0
+0.1.18
+
+## Command Line Tool
+
+Install:
+
+    sudo npm install bold -g
+    
+Create example server:
+
+    bold create bold-server && cd bold-server
 
 ## How to use
 
-In a web.js file at your project root, use the following to set up a bold server:
+We recommend starting off using our command line tool. It will setup the bold server for you. If you want to setup a server manually, follow this guide.
 
-    var nm = require('bold');
 
-    var config = {
-      appName: 'ExampleApp',
-      server: 'Main',
-      port: process.argv[2] || 4050,
-      useStaticServer: true,
-      favicon: 'favicon.ico',
-      envLocation: '_env.js',
-      preContent: 'routes.js',
-      postContent: 'routes2.js',
-      mongooseSchemaLocation: '_schema.js',
-      viewEngine: 'jade',
-      viewDirectory: 'views',
-      publicDirectory: 'public',
-      servers: ['Main:' + os.hostname()],
-      logger: {
-        userName: '',
-        password: ''
-      },
-      api: {
-        location: 'api'
-      },
-      onlineUsersConfig: {
-        timer:900
-      }
-    };
+In a server.js file at your project root, use the following to set up a bold server:
 
-    nm.extra(__dirname).server(config);
+  var Bold = require('../lib/bold.js');
 
-Each option should be customized for your app. 
+  Bold.start(function(port) {
+    console.log('My server started on port '+ port);
+  });
 
-#### Config Options:
+#### Config Folder:
+
+##### Location: config
+
+Under your app directory, create a folder called 'config'. In there, you can have the following files:
+
+1. config.js (required)
+2. routes.js
+
+#### Config.js
+
+##### Location: config/config.js
+
+Under config.js, you can return the following options:
 
 1. **appName**: Name of your app.
 1. **server**: Name of the server that the current code is running on.
 1. **port:** What port to run server on. Defaults to process.env.PORT and then to 4050.
 1. **useStaticServer:** Wether to allow the server to act as a static server for a specified folder. Used with viewEngine, viewDirectory, and publicDirectory. Defaults to true.
 1. **favicon:** Location of your favicon. Defaults to 'public'.
-1. **[envLocation](#environmental-variables)**: Location of your environmental variables.
-1. **[preContent](#routes)**: Location of your routes that run before api routes.
-1. **[postContent](#routes)**: Location of your routes that run after api routes.
-1. **[mongooseSchemaLocation](#mongoose-schema)**: Location of your mongoose schema. Defaults to '_schema.js'.
 1. **viewEngine:** Which view engine to use. Example: jade, html, handlebars, etc.
-1. **viewEngine:** Which directory to be used to serve views, if using dynamic views.
+1. **viewDirectory:** Which directory to be used to serve views, if using dynamic views.
 1. **publicDirectory:** Which directory to be used as your 'static folder.'
-1. **servers**: An array of servers that is used by redis-logger and socket.io-online-users.
-1. **logger.username**: username to access the redis-logger
-1. **logger.password**: password to access the redis-logger
-1. **[api.location](#standard-apis)**: Location of your api folder.
-1. **[api.version](#standard-apis)**: The version number the server should use for internal calls.
-1. **[api.addSocketsToRoom](#standard-apis)**: A function that is called every API call that allows you to add a socket/user to a room for socket.io. The function has two arguments: (session, socket);
-1. **onlineUsersConfig:** An object with configuration options to use socket.io-online-users.
-1. **onlineUsersConfig.timer**: The buffer time until the server updates the server with who is online.
 1. **ssl**: An object of options to use ssl on your node server.
 1. **ssl.key:** Location of key file to use.
 1. **ssl.cert:** Location of the cert file to use.
@@ -80,48 +68,35 @@ Each option should be customized for your app.
 1. **dontUseRedisTTL:** do not use a ttl for redis.
 1. **ttl:** Time in seconds until redis expires documents. Defaults to 3600.
 
-## Components
+**Note:** each of these configs can be a string, or a function that expects a string to be returned.
 
-### Environmental Variables
+#### Routes.js
 
-##### Location: _env.js
+##### Location: config/routes.js
 
-Allows you to set environment variables used throughout the app:
+Allows you to add custom routes. We pass the express 'app' object to this function so you can configure custom routes.
 
-    exports.configureEnvironment = function(app, process) {
-      // required variables
-      process.env['SESSION_KEY'] = 'my_express.sid';
-      process.env['SESSION_SECRET'] = 'exampleSecret';
-      process.env['COOKIE_KEY'] = 'ExampleCookie';
-      process.env.MONGO_URI = '';
-      process.env.REDIS_URI = 'redis://redis:redis@ip:port/dbindex';
+    //Location:
+    //config/routes.js
 
-      // add your own
-      process.env['SOME_API_KEY'] = 'aaa111nnn123';
-    };
-
-### Routes
-
-##### Location: routes.js
-
-Allows you to create custom routes for your app.
-
-    exports.content = function(app, io) {
-      // you can use this page for additional, custom routes
-      app.get('/', function(req, res, next) {
-        res.send('This is an example server');
+    module.exports = function(app) {
+      app.get('/users', function(req, res, next) {
+        res.send([{
+          firstName: 'Alex',
+          lastName: 'Price'
+        }]);
       });
     };
 
-### Standard APIs
+#### APIs
 
 ##### Location: api/
 
 Allows you to create APIs that can be accessed by both socket.io and by RESTful requests.
 
-Say I want to call the function 'run' under 'SomeAPI'. I can request the API either using ``http://localhost:4050/api/SomeAPI/run`` or by using sockets on the client:
+Say I want to call the function 'getUsers' under 'user'. I can request the API either using ``http://localhost:4050/api/user/getUser`` or by using socket.io on the client:
 
-    socket.emit('api', 'SomeAPI', 'run', {
+    socket.emit('api', 'user', 'getUser', {
       testData: 'I Am Groot'
     }, function(err, data) {
       if (err) {
@@ -131,18 +106,23 @@ Say I want to call the function 'run' under 'SomeAPI'. I can request the API eit
       }
     });
 
-The contents of ``api/SomeAPI.js`` then look like:
 
-    exports.run = function() {
-      console.log(data.testData); // prints "I Am Groot"
+Example Api:
 
-      var number = Math.random();
-      if (number < .5) {
-        return fn('This is a standard error message.');
-      } else {
-        return fn(null, {
-          data: 'This the standard way to send data back to the client.'
-        });
+    //Location:
+    //api/user.js
+
+    var sampleUser = {
+      name: 'Alex Price'
+    };
+
+    module.exports = {
+      getUser: {
+        middleware: ['middleware/auth.testCredentials'],
+        api: function(data, fn, session, extras) {
+          return fn(null, sampleUser);
+        },
+        afterware: ['middleware/auth.user.logUser']
       }
     };
 
@@ -158,95 +138,102 @@ Extras has the following properties:
 - ``ipAddress``
 - ``hostname``
 
-###### API Middleware Example
+##### Sessions
 
-    function testSession(data,fn,session,extras,next){
-      if(!session){
-        return fn("You have to have a session for this.");
-      } else {
-        return next();
-      }
-    }
+Sessions use redis for consistency across Node instances and for persistance. To read a session, just use standard dot notation. To write to the session, just write to the session object, and then run session.save():
 
-    exports.testSession=API2(testSession,testSession,function(data,fn,session,extras){
-      fn(null, 'You have a session!');
-    });
+    //Location:
+    //api/user.js
 
-    exports.fn=function(){
-      fn(null, 'yay!!');
-    };
+    module.exports = {
+      updateUser: {
+        middleware: ['middleware/auth.testCredentials'],
+        api: function(data, fn, session, extras) {
+          var user = session.user;
 
-    exports.staticVariacle=1;
+          session.user.firstName = 'Alex';
 
-## next()
-
-Next allows you to run the next functon in the iteration. If you want to skip all middleware except the last function, run next({
-  finish: true
-}).
-
-Also, if you use the middleware and do not provide a connectionType in extras, API2 will add 'internal' to the connectionType.
-
-## after()
-
-If you want to run an API after another API is complete, you may add an after() call to the middleware.
-
-    var middleware = API('middleware');
-    var afterware = API('afterware');
-
-    exports.run = API2(middleware.checkCredentials, function(data, fn, session, extras) {
-    
-      if (!data) {
-        return fn('You did not send any data.');
-      }
-    
-      var number = Math.random();
-      console.log('We are sending back this number::', number);
-      return fn(null, number);
-    
-    });
-    
-    exports.run.after(afterware.testLog);
-
-In the above example, the ``run()`` API will use middleware to check access credentials. If the credentials middleware finishes successfully, our API does its work. As soon as ``fn(null, number)`` is called, the afterware API called ``eventLog`` is triggered. What happens inside the afterware API has no impact on what the ``run()`` API does. An afterware API gets the parameters ``err, res, data, session, extras``, and might look something like:
-
-    exports.testLog = function(err, res, data, session, extras) {
-      if (err) {
-        return console.log('The API experienced an error. Log the error to the DB.')
-      } else {
-        return console.log('We can log the number ' + res + ' to the DB.');
+          session.save();
+          return fn(null, true);
+        },
+        afterware: ['middleware/auth.user.logUser']
       }
     };
 
-## API Promises
+##### Middleware/Afterware
 
-With 0.5.0 we are introducing promises for our APIs. To turn any of our APIs as a promise, run API.Q.
-Although it should be compatible with several promise libraries, I recommend using the module, [q](https://www.npmjs.org/package/q).
+All API's support both middleware and afterware. To add middleware, add the key 'middleware' to your api, and supply it an array of strings that reference other API functions, as seen in the example above.
 
-    var User = API.Q('User');
-    
-    User.getData({},'session','extras').then(function(){
-      console.log('success',arguments);
-    },function(){
-      console.log('fail',arguments);
-    });
+Afterware can be added to any api by providing the key 'afterware' and supplying it an array of strings that reference other API functions. Afterware will run after an api is finished, but dose not have access to the 'fn' function.
+
+
+Middleware/Afterware example:
+
+    //Location:
+    //api/middleware/auth.js
+
+    module.exports = {
+      testCredentials: function(data, fn, session, extras, next) {
+        if (data.credentials == 'true') {
+          return next();
+        } else {
+          return fn('You sent this bad fake credentials. That will not work.', null);
+        }
+      },
+      user: {
+        logUser: function(data, session, extras, next) {
+          //Do something with user data like log user info into DB 
+        }
+      }
+    };
+
+##### next()
+
+Next allows you to run the next functon in the iteration. If you want to skip all middleware/afterware run: 
+    next({
+      finish: true
+    })
+
 
 ### Mongoose Schema
 
-##### Location: schema.js
+##### Location: config/schema/
 
 Allows you to create a mongoose schema that can be used throughout your app. Configure your file to look like this:
+
+Example: 
+
+    //Location:
+    //config/schema/user.js
 
     var mongoose = require('mongoose');
     var Schema = mongoose.Schema;
 
-    exports.User = mongoose.model('User', new Schema({
+    module.exports = mongoose.model('User', new Schema({
       firstName: String,
       lastName: String,
       fullName: String
     }));
 
-**Note:** everything you export in here will be attached to the global scope. It will be accessible throughout your whole server.
+To access your schema in other parts of your app, require 'bold' and read on the Schema location
 
+    //Location:
+    //api/user
+
+    var Bold = require('bold');
+    var Schemas = Bold.Schemas;
+
+    module.exports = {
+      getUser: {
+        api: function(data, fn, session, extras) {
+          Schemas.User.findById(data._id, function(err, user) {
+            fn(null, user);
+          });
+        }
+      }
+    };
+
+**Note:** Mongoose is optional. If you want to use mongoose, you must provide a mongoUri under config/config.js.
 
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
 [license-url]: https://github.com/chapinkapa/bold/blob/master/LICENSE

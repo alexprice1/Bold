@@ -1,6 +1,3 @@
-var clc = require('cli-color');
-var warn = clc.yellow;
-
 var sampleUser = {
   name: 'Alex Price'
 };
