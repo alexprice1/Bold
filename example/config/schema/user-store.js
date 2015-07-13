@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var Connection = require('bold').Connection;
 var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
@@ -6,4 +7,4 @@ var userSchema = new Schema({
   password: String
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = Connection.model('User', userSchema);

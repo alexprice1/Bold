@@ -207,13 +207,16 @@ Example:
     //config/schema/user.js
 
     var mongoose = require('mongoose');
+    var Connection = require('bold').Connection;
     var Schema = mongoose.Schema;
 
-    module.exports = mongoose.model('User', new Schema({
+    module.exports = Connection.model('User', new Schema({
       firstName: String,
       lastName: String,
       fullName: String
     }));
+
+**Note:** You must use bold.Connection in order to access the same mongoose instance across your bold server.
 
 To access your schema in other parts of your app, require 'bold' and read on the Schema location
 
