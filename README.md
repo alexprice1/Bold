@@ -224,12 +224,12 @@ To access your schema in other parts of your app, require 'bold' and read on the
     //api/user
 
     var Bold = require('bold');
-    var Schemas = Bold.Schemas;
+    var Models = Bold.Models;
 
     module.exports = {
       getUser: {
         api: function(data, fn, session, extras) {
-          Schemas.User.findById(data._id, function(err, user) {
+          Models.User.findById(data._id, function(err, user) {
             fn(null, user);
           });
         }
