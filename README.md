@@ -204,7 +204,7 @@ Allows you to create a mongoose schema that can be used throughout your app. Con
 Example: 
 
     //Location:
-    //config/schema/user.js
+    //config/model/user.js
 
     var mongoose = require('mongoose');
     var Connection = require('bold').Connection;
@@ -218,7 +218,7 @@ Example:
 
 **Note:** You must use bold.Connection in order to access the same mongoose instance across your bold server.
 
-To access your schema in other parts of your app, require 'bold' and read on the Schema location
+To access your model in other parts of your app, require 'bold' and read on the Model location
 
     //Location:
     //api/user
