@@ -10,6 +10,10 @@ Get the source from [GitHub](https://github.com/chapinkapa/bold) or install via 
 
 **Note:** this will take a while. We include all the dependencies to run bold.
 
+## Notice::
+
+0.1.x will be the last support for Node 0.12 or less. Current supports Node 2.0 >
+
 ## Version
 
 0.1.18
